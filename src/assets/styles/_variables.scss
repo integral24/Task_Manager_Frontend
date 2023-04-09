@@ -1,0 +1,130 @@
+@use "sass:selector";
+
+$red: #ff4d4f;
+$brightRed: #fc393b;
+$green: #2cd6a2;
+$darkGreen: #32bb58;
+$blue: #4690f1;
+$lightBlue: #f7f5f8;
+$yellow: #ffd645;
+$orange: #ff8311;
+$purple: #cd5ee0;
+$gray: #888888;
+$lightGray: #f1f1f1;
+$bgGray: #eeeeee;
+$ultraLight: #f4f4f4;
+$lightGray2: #dddddd;
+$lightGray3: #aaaaaa;
+$black: #000000;
+$lightBlack: #333333;
+
+$page-content-padding-mobile: 0 20px;
+
+$hover-delay: 0.15s;
+
+$mainFont: "Montserrat", "sans-serif";
+
+$grid-gutter-width: 20px;
+$enable-negative-margins: true;
+
+$grid-breakpoints: (
+  xs: 0,
+  xss: 340px,
+  se: 376px,
+  ss: 420px,
+  xsm: 480px,
+  sm: 576px,
+  md: 768px,
+  ls: 860px,
+  lg: 1024px,
+  xl: 1200px,
+  mxl: 1360px,
+  xxl: 1500px,
+);
+
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 100%,
+  xxl: 1480px,
+);
+
+@mixin hover-button($bg, $color) {
+  background: $bg;
+  color: $color;
+}
+
+//noinspection CssOverwrittenProperties
+@mixin viewport-height($value: 100) {
+  height: $value + vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * $value);
+}
+
+//noinspection CssOverwrittenProperties
+@mixin viewport-max-height($value: 100) {
+  max-height: $value + vh; /* Fallback for browsers that do not support Custom Properties */
+  max-height: calc(var(--vh, 1vh) * $value);
+}
+
+//noinspection CssOverwrittenProperties
+@mixin viewport-min-height($value: 100) {
+  min-height: $value + vh; /* Fallback for browsers that do not support Custom Properties */
+  min-height: calc(var(--vh, 1vh) * $value);
+}
+
+@mixin fade-placeholder() {
+  input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+  input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+  input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+  input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+  input:focus::-webkit-input-placeholder {opacity: 0.3; transition: opacity 0.3s ease;}
+  input:focus::-moz-placeholder          {opacity: 0.3; transition: opacity 0.3s ease;}
+  input:focus:-moz-placeholder           {opacity: 0.3; transition: opacity 0.3s ease;}
+  input:focus:-ms-input-placeholder      {opacity: 0.3; transition: opacity 0.3s ease;}
+}
+
+@mixin label-icon-product-circle ($size: 24px, $bg) {
+  width: max-content;
+  height: $size;
+  border-radius: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .text-in-label {
+    background-color: $bg;
+    position: relative;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 12px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 20px;
+    transform: translateX(-100%);
+    z-index: 0;
+    height: $size;
+    transition: $hover-delay;
+    color: #fff;
+    border-radius: 0 30px 30px 0;
+  }
+  $text-label: '.text-in-label';
+
+  & > .svg-icon {
+    background-color: $bg;
+    border-radius: $size;
+    background-size: 80%;
+    width: $size;
+    height: $size;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+      ~ #{$text-label} {
+        transform: translateX(-20px);
+      }
+    }
+  }
+}
