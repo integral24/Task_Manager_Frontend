@@ -1,8 +1,7 @@
 import React from 'react';
-import './assets/styles/index.scss';
 import { Routes, Route } from 'react-router-dom';
-import About from './components/About';
-import MainPage from './components/MainPage';
+import About from './pages/About';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (

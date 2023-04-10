@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAppSelector } from '../hooks/redux';
-import { RootState } from '../redux/store';
+import { useAppSelector } from '@/hooks/redux';
+import { RootState } from '@/redux/store';
 
 function MainPage() {
   const tasks = useAppSelector((state: RootState) => state.taskSlice.tasks);
