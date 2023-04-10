@@ -11,7 +11,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@pages/*": ["./src/pages/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
