@@ -1,0 +1,24 @@
+.button {
+  color: #FFF;
+  
+  &.primary {
+    background-color: $primary;
+  }
+  &.secondary {
+    background-color: $secondary;
+  }
+
+  &.sm {
+    padding: 5px;
+  }  
+  &.md {
+    padding: 7px;
+  }  
+  &.lg {
+    padding: 10px;
+  }  
+  &.xl {
+    padding: 12px;
+  }
+
+}

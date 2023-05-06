@@ -7,7 +7,7 @@ const wrapper = (component: ReactNode) => (
   <React.Suspense fallback={<>...load</>}>{component}</React.Suspense>
 );
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="wrapper">
       <div className="content">
@@ -24,6 +24,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

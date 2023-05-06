@@ -7,7 +7,7 @@ import { store } from './redux/store';
 import './assets/styles/index.scss';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLDivElement
 );
 root.render(
   <BrowserRouter>

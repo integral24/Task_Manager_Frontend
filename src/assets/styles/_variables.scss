@@ -1,31 +1,7 @@
 @use "sass:selector";
 
-$red: #ff4d4f;
-$brightRed: #fc393b;
-$green: #2cd6a2;
-$darkGreen: #32bb58;
-$blue: #4690f1;
-$lightBlue: #f7f5f8;
-$yellow: #ffd645;
-$orange: #ff8311;
-$purple: #cd5ee0;
-$gray: #888888;
-$lightGray: #f1f1f1;
-$bgGray: #eeeeee;
-$ultraLight: #f4f4f4;
-$lightGray2: #dddddd;
-$lightGray3: #aaaaaa;
-$black: #000000;
-$lightBlack: #333333;
-
-$page-content-padding-mobile: 0 20px;
-
-$hover-delay: 0.15s;
-
-$mainFont: "Montserrat", "sans-serif";
-
-$grid-gutter-width: 20px;
-$enable-negative-margins: true;
+$primary: red;
+$secondary: green;
 
 $grid-breakpoints: (
   xs: 0,
