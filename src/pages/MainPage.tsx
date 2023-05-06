@@ -10,7 +10,6 @@ const MainPage: React.FC = () => {
   const [value, setValue] = useState<string>('');
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e);
     setValue(e.target.value);
   };
 
@@ -25,7 +24,7 @@ const MainPage: React.FC = () => {
         className="Cool"
         disabled
       />
-      <Input placeholder="Login" value={value} onChange={onChangeHandler} />
+      <Input borderRadius="br-2" placeholder="Login" value={value} onChange={onChangeHandler} />
     </div>
   );
 };

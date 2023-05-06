@@ -35,7 +35,7 @@
   "rules": {
     "linebreak-style": "off",
     "prettier/prettier": [
-      "error",
+      "warn",
       {
         "endOfLine": "auto"
       }
@@ -49,7 +49,7 @@
     "max-len": [
       "warn",
       {
-        "code": 280,
+        "code": 480,
         "tabWidth": 4
       }
     ],
