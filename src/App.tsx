@@ -1,17 +1,24 @@
-import React from 'react';
-import './assets/styles/index.scss';
-import { Routes, Route } from 'react-router-dom';
-import About from './components/About';
-import MainPage from './components/MainPage';
+import React, { ReactNode } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+const MainPage = React.lazy(() => import('@pages/MainPage'));
+const About = React.lazy(() => import('@pages/About'));
+
+const wrapper = (component: ReactNode) => (
+  <React.Suspense fallback={<>...load</>}>{component}</React.Suspense>
+);
 
 function App() {
   return (
     <div className="wrapper">
       <div className="content">
         <div className="container">
+          <nav className="nav">
+            <Link to="/">MainPage</Link>
+            <Link to="/about">About</Link>
+          </nav>
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/about" element={<About />} />
+            <Route index path="/" element={wrapper(<MainPage />)} />
+            <Route path="/about" element={wrapper(<About />)} />
           </Routes>
         </div>
       </div>
