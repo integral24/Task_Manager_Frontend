@@ -50,7 +50,7 @@
       "warn",
       {
         "code": 480,
-        "tabWidth": 4
+        "tabWidth": 2
       }
     ],
     "no-new": 0,

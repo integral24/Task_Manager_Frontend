@@ -16,6 +16,7 @@ const MainPage: React.FC = () => {
   return (
     <div className="page">
       <h1>Main Page</h1>
+
       <Button size="md" text="Click" color="primary" className="Active" />
       <Button
         size="lg"
