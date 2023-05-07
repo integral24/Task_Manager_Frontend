@@ -1,3 +1,116 @@
 @import './variables';
 @import './reset';
 @import './ui';
+@import './modal';
+
+.rtg-jo-enter {
+  opacity: 0;
+}
+
+.rtg-jo-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.rtg-jo-exit {
+  opacity: 1;
+}
+
+.rtg-jo-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+// Фейд с легким вылетом сверху
+.rtg-ft-enter {
+  transform: translate(0, -20px);
+  opacity: 0;
+}
+
+.rtg-ft-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.rtg-ft-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.rtg-ft-exit-active {
+  transform: translate(0, -20px);
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.rtg-ft {
+  transition: all 0.1s ease;
+}
+
+// Снизу вверх
+.rtg-oe-enter {
+  transform: translate(0, 100%);
+  opacity: 0;
+}
+
+.rtg-oe-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.rtg-oe-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.rtg-oe-exit-active {
+  transform: translate(0, 100%);
+  opacity: 0;
+  transition: all 8ms;
+}
+
+// Снизу вверх (круто)
+.rtg-sd-enter {
+  transform: translate(0, 100%);
+  opacity: 0;
+}
+
+.rtg-sd-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.rtg-sd-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.rtg-sd-exit-active {
+  transform: translate(0, 100%);
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}
+
+// slide open
+.rtg-sc-enter {
+  max-height: 0;
+}
+
+.rtg-sc-enter-active {
+  max-height: 600px;
+}
+
+.rtg-sc-exit {
+  max-height: 600px;
+}
+
+.rtg-sc-exit-active {
+  max-height: 0;
+}
+
+.rtg-sc-enter-done {
+  max-height: 600px;
+}

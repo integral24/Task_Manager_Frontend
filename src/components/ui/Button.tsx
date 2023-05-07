@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { log } from 'console';
 
 interface Ibutton {
   size: 'sm' | 'md' | 'lg' | 'xl';
@@ -12,15 +13,16 @@ interface Ibutton {
 
 const Button: React.FC<Ibutton> = (props: Ibutton): JSX.Element => {
   const { size, text, className, color, disabled, onClick } = props;
+
   return (
     <button
+      onClick={onClick}
       className={cn({
         button: true,
         [size]: true,
         [className ? className : '']: !!className,
         [color]: true,
       })}
-      onClick={onClick}
       disabled={disabled}
     >
       {text}
