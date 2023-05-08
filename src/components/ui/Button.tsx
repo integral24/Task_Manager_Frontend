@@ -1,6 +1,5 @@
 import React from 'react';
 import cn from 'classnames';
-import { log } from 'console';
 
 interface Ibutton {
   size: 'sm' | 'md' | 'lg' | 'xl';

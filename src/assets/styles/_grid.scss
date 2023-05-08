@@ -15,24 +15,24 @@ $grid-columns: 12 !default;
 $grid-gutter-width: 20px !default;
 
 $grid-breakpoints: (
-    xxs:    340px,
-    se:     375px,
-    xs:     400px,
-    s:      560px,
-    ssm:    620px,
-    sm:     780px,
-    smd:    960px,
-    md:     1279px,
-    mlg:    1336px,
-    lg:     1480px,
+  xxs: 340px,
+  se: 375px,
+  xs: 400px,
+  s: 560px,
+  ssm: 620px,
+  sm: 780px,
+  smd: 960px,
+  md: 1279px,
+  mlg: 1336px,
+  lg: 1480px,
 ) !default;
 
 $grid-card: (
-    1279px: 320px,
-    736px: 310px,
-    620px: 310px,
-    560px: 310px,
-    400px: 290px,
+  1279px: 320px,
+  736px: 310px,
+  620px: 310px,
+  560px: 310px,
+  400px: 290px,
 ) !default;
 
 // Grid containers
@@ -42,35 +42,35 @@ $card-width: 270px;
 $max-container-width: 1336px;
 
 $container-max-widths: (
-    xs: 450px,
-    s:  560px,
-    sm: 768px,
-    md: 1200px,
-    lg: 1336px,
-    //$max-container-width // 1336
+  xs: 450px,
+  s: 560px,
+  sm: 768px,
+  md: 1200px,
+  lg: 1336px,
+  //$max-container-width // 1336
 ) !default;
 
 // media down
 @mixin media-breakpoint-down($breakpoint) {
-    @if map-has_key($grid-breakpoints, $breakpoint) {
-        @media screen and (max-width: map_get($grid-breakpoints, $breakpoint ) - 1) {
-            @content;
-        }
-    } @else {
-        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Please make sure it is defined in `$breakpoints` map.";
+  @if map-has_key($grid-breakpoints, $breakpoint) {
+    @media screen and (max-width: calc(map_get($grid-breakpoints, $breakpoint ) - 1px)) {
+      @content;
     }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
 }
 
 //media up
 
 @mixin media-breakpoint-up($breakpoint) {
-    @if map-has_key($grid-breakpoints, $breakpoint) {
-        @media screen and (min-width: map_get($grid-breakpoints, $breakpoint)) {
-            @content;
-        }
-    } @else {
-        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Please make sure it is defined in `$breakpoints` map.";
+  @if map-has_key($grid-breakpoints, $breakpoint) {
+    @media screen and (min-width: map_get($grid-breakpoints, $breakpoint)) {
+      @content;
     }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
 }
