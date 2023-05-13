@@ -1,7 +1,18 @@
 @use "sass:selector";
 
-$primary: red;
-$secondary: green;
+$br0: 0px;
+$br1: 5px;
+$br2: 10px;
+$br3: 50%;
+
+$body-dark-blue: #141821;
+$body-blue: #161A24;
+$menu-background: #1F232D;
+$button-active: #304F9C;
+$button-disable: #393C45;
+$text-primary: #E4E8F7;
+$text-active: #DBDBDB;
+$svg-elements-light: #DBDBDB;
 
 $grid-breakpoints: (
   xs: 0,

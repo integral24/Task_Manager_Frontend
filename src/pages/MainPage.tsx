@@ -4,6 +4,7 @@ import { RootState } from '@/redux/store';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Modal from '@/components/ui/Modal';
+import Checkbox from '@/components/ui/Checkbox';
 
 const MainPage: React.FC = () => {
   const tasks = useAppSelector((state: RootState) => state.taskSlice.tasks);
@@ -22,13 +23,14 @@ const MainPage: React.FC = () => {
   return (
     <div className="page">
       <h1>Main Page</h1>
-
       <Button
         size="lg"
         text="Press here"
         color="secondary"
         className="Cool"
         onClick={isOpenHandler}
+        type="button"
+        borderRadius="br2"
       />
       <Input
         borderRadius="br-2"
@@ -39,6 +41,7 @@ const MainPage: React.FC = () => {
       <Modal close={isOpenHandler} type="full" isOpen={isOpen}>
         <div>My some modal </div>
       </Modal>
+      <Checkbox id="testCheckbox" checked="checked" labelText="Check it here" />
     </div>
   );
 };
