@@ -17,6 +17,7 @@ const Select: React.FC<ISelect> = (props): JSX.Element => {
   const setIsOpenHandler = () => {
     setIsOpen((prev) => !prev);
   };
+
   return (
     <div
       className={cn({
