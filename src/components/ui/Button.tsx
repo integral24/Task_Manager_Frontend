@@ -12,7 +12,7 @@ interface Ibutton {
   borderRadius: 'br0' | 'br1' | 'br2' | 'br3';
 }
 
-const Button: React.FC<Ibutton> = (props: Ibutton): JSX.Element => {
+const Button: React.FC<Ibutton> = (props): JSX.Element => {
   const {
     size,
     text,

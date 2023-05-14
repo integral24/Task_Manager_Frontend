@@ -13,7 +13,7 @@ interface IInput {
   onFocus?: () => void;
 }
 
-const Input: React.FC<IInput> = (props: IInput): JSX.Element => {
+const Input: React.FC<IInput> = (props): JSX.Element => {
   const {
     size,
     placeholder,
