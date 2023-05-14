@@ -23,7 +23,6 @@ const Checkbox: React.FC<ICheckbox> = (props: ICheckbox): JSX.Element => {
         id={id}
         name={name}
         value={value}
-        // checked={checked}
         onChange={onChange}
       />
       <label htmlFor={id}>{labelText}</label>
