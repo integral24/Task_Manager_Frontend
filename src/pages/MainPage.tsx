@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Modal from '@/components/ui/Modal';
 import Checkbox from '@/components/ui/Checkbox';
+import Select from '@/components/ui/Select';
 
 const MainPage: React.FC = () => {
   const tasks = useAppSelector((state: RootState) => state.taskSlice.tasks);
@@ -12,6 +13,8 @@ const MainPage: React.FC = () => {
   const [value, setValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [check, setCheck] = useState<boolean>(false);
+  const [optionCurrentTitle, setOptionCurrentTitle] =
+    useState<string>('Срочные');
 
   const isOpenHandler = () => {
     setIsOpen((prev) => !prev);
@@ -24,6 +27,21 @@ const MainPage: React.FC = () => {
   const onCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheck(e.target.checked);
   };
+
+  const optionItem = [
+    {
+      title: 'Срочные',
+      icon: 'ссылка на иконку',
+    },
+    {
+      title: 'Важные',
+      icon: 'ссылка на иконку',
+    },
+    {
+      title: 'Бесполезные',
+      icon: 'ссылка на иконку',
+    },
+  ];
 
   return (
     <div className="page">
@@ -50,6 +68,11 @@ const MainPage: React.FC = () => {
         checked={check}
         onChange={onCheckHandler}
         labelText="Check it here"
+      />
+      <Select
+        options={optionItem}
+        optionCurrentTitle={optionCurrentTitle}
+        setOptionCurrentTitle={setOptionCurrentTitle}
       />
     </div>
   );

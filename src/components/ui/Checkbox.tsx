@@ -12,7 +12,7 @@ interface ICheckbox {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox: React.FC<ICheckbox> = (props: ICheckbox): JSX.Element => {
+const Checkbox: React.FC<ICheckbox> = (props): JSX.Element => {
   const { className, labelText, name, checked, onChange } = props;
 
   return (
