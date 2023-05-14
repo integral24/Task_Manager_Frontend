@@ -1,0 +1,37 @@
+.button {
+  color: $text-primary;
+  
+  &.primary {
+    background-color: $button-disable;
+  }
+  &.secondary {
+    background-color: $button-disable;
+  }
+
+  &.sm {
+    padding: 5px;
+  }  
+  &.md {
+    padding: 7px;
+  }  
+  &.lg {
+    padding: 10px;
+  }  
+  &.xl {
+    padding: 12px;
+  }
+
+  &.br0 {
+    border-radius: $br0;
+  }
+  &.br1 {
+    border-radius: $br1;
+  }
+  &.br2 {
+    border-radius: $br2;
+  }
+  &.br3 {
+    border-radius: $br3;
+  }
+
+}

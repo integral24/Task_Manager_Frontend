@@ -1,0 +1,30 @@
+@import './button';
+@import './modal';
+
+.checkbox {
+  display: none;
+
+  & + label {
+    position: relative;
+    padding-left: 35px;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      width: 25px;
+      height: 25px;
+      background-color: $input-dark-bg;
+      position: absolute;
+      border-radius: $br1;
+      left: 0;
+    }
+  }
+
+  &:checked + label::before {
+    background-image: url('../../icons/check.svg');
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+  }
+}

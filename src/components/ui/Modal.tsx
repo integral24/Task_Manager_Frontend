@@ -19,6 +19,7 @@ const Modal: React.FC<IProps> = (props) => {
   const closeHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) close();
   };
+
   return (
     <>
       {modalPortal &&
@@ -38,7 +39,7 @@ const Modal: React.FC<IProps> = (props) => {
               <div
                 className={cn({
                   'modal-content': true,
-                  ['modal__' + type]: !!type,
+                  ['modal__' + type]: true,
                 })}
               >
                 {children}
