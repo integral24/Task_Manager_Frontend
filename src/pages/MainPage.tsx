@@ -31,15 +31,15 @@ const MainPage: React.FC = () => {
   const optionItem = [
     {
       title: 'Срочные',
-      icon: 'ссылка на иконку',
+      icon: 'иконка',
     },
     {
       title: 'Важные',
-      icon: 'ссылка на иконку',
+      icon: 'иконка',
     },
     {
       title: 'Бесполезные',
-      icon: 'ссылка на иконку',
+      icon: 'иконка',
     },
   ];
 
