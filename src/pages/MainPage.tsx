@@ -26,16 +26,16 @@ const MainPage: React.FC = (): JSX.Element => {
 
   const optionItem = [
     {
-      title: 'Срочные',
-      icon: 'иконка',
+      title: 'Горящие',
+      icon: 'fire',
     },
     {
       title: 'Важные',
-      icon: 'иконка',
+      icon: 'infocircle',
     },
     {
-      title: 'Бесполезные',
-      icon: 'иконка',
+      title: 'Тривиальные',
+      icon: 'note',
     },
   ];
 
