@@ -1,0 +1,27 @@
+.checkbox {
+  display: none;
+
+  & + label {
+    position: relative;
+    padding-left: 35px;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: $input-dark-bg;
+      position: absolute;
+      border-radius: $br1;
+      left: 0;
+    }
+  }
+
+  &:checked + label::before {
+    background-image: url('../../images/icons/check.svg');
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: center;
+  }
+}

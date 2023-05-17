@@ -1,0 +1,47 @@
+.select {
+  max-width: 250px;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 14px;
+
+  margin-left: 100px;
+
+  $select: &;
+
+  &__current-title {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    width: max-content;
+    background: #232833;
+    padding: 10px;
+    border-radius: $br1;
+  }
+
+  &__options {
+    max-width: 250px;
+    background: #232833;
+    box-shadow: 0px 12px 30px 4px rgba(0, 0, 0, 0.14);
+    border-radius: $br1;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 10px;
+
+    div {
+      font-weight: 400;
+      font-size: 14px;
+      padding: 3px;
+    }
+  }
+
+  &.open {
+    #{$select}__options {
+      border-top-left-radius: 0;
+    }
+    #{$select}__current-title {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}

@@ -4,13 +4,13 @@
     background-size: contain;
     width: $width;
     height: $height;
-    background-image: url("../images/icons/#{$path}.svg");
+    background-image: url('../images/icons/#{$path}.svg');
     background-position: 50%;
     background-repeat: no-repeat;
     line-height: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    transition: $hover-delay ease-in-out all;
+    transition: 0.1s ease-in-out all;
   }
 
   &.pointer {
@@ -18,18 +18,12 @@
   }
 }
 
-@mixin svg-icon-white($path, $width, $height) {
-  &.#{$path} {
-    background-image: url("../images/icons/#{$path}-white.svg");
-  }
-}
-
 .svg-icon {
-
+  @include svg-icon('arrow-up', 16px, 16px);
+  @include svg-icon('arrow-down', 16px, 16px);
 }
 
 button:hover {
   .svg-icon {
-
   }
 }

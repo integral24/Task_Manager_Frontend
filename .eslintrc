@@ -7,12 +7,7 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "jest",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "jest", "prettier"],
   "env": {
     "browser": true,
     "es6": true,
@@ -47,12 +42,13 @@
       }
     ],
     "max-len": [
-      "warn",
+      "off",
       {
-        "code": 480,
+        "code": 1000,
         "tabWidth": 2
       }
     ],
+    "max-lines": "off",
     "no-new": 0,
     "camelcase": 0,
     "react/destructuring-assignment": 0,
@@ -70,20 +66,13 @@
     "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/naming-convention": 0,
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn"
-    ],
+    "@typescript-eslint/no-unused-vars": ["warn"],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": [
-      "warn"
-    ],
+    "@typescript-eslint/no-use-before-define": ["warn"],
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ],
     "eslint-disable-next-line": "off",
