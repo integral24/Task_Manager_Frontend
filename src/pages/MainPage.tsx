@@ -51,12 +51,8 @@ const MainPage: React.FC = (): JSX.Element => {
         type="button"
         borderRadius="br2"
       />
-      <Input
-        borderRadius="br-2"
-        placeholder="Login"
-        value={value}
-        onChange={onChangeHandler}
-      />
+      <br />
+      <Input placeholder="Login" value={value} onChange={onChangeHandler} />
       <Modal close={isOpenHandler} type="full" isOpen={isOpen}>
         <div>My some modal </div>
       </Modal>
