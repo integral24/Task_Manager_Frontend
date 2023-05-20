@@ -3,14 +3,14 @@ import cn from 'classnames';
 import { useOnClickOutside } from 'usehooks-ts';
 import { CSSTransition } from 'react-transition-group';
 
-interface ISelect {
+interface IProps {
   options: { title: string; icon: string }[];
   className?: string;
   setOptionCurrentTitle: React.Dispatch<React.SetStateAction<string>>;
   optionCurrentTitle: string;
 }
 
-const Select: React.FC<ISelect> = (props): JSX.Element => {
+const Select: React.FC<IProps> = (props): JSX.Element => {
   const { options, className, setOptionCurrentTitle, optionCurrentTitle } =
     props;
 

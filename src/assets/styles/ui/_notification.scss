@@ -1,0 +1,18 @@
+.notification {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: $input-dark-bg;
+  border-radius: $br1;
+  cursor: pointer;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 8px;
+    padding: 10px;
+}
+}

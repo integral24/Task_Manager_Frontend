@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 import cn from 'classnames';
 
-interface ICheckbox {
+interface IProps {
   className?: string;
   labelText?: string;
   name?: string;
@@ -9,7 +9,7 @@ interface ICheckbox {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox: React.FC<ICheckbox> = (props): JSX.Element => {
+const Checkbox: React.FC<IProps> = (props): JSX.Element => {
   const { className, labelText, name, checked, onChange } = props;
   const id = useId();
 

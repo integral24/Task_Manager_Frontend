@@ -4,16 +4,18 @@ import Input from '@/components/ui/Input';
 import Modal from '@/components/ui/Modal';
 import Checkbox from '@/components/ui/Checkbox';
 import Select from '@/components/ui/Select';
+import Notification from '@/components/ui/Notification';
 
 const MainPage: React.FC = (): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpenNote, setIsOpenNote] = useState<boolean>(false);
   const [check, setCheck] = useState<boolean>(false);
   const [optionCurrentTitle, setOptionCurrentTitle] =
     useState<string>('Срочные');
 
   const isOpenHandler = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpenNote((prev) => !prev);
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +67,13 @@ const MainPage: React.FC = (): JSX.Element => {
         options={optionItem}
         optionCurrentTitle={optionCurrentTitle}
         setOptionCurrentTitle={setOptionCurrentTitle}
+      />
+      <Notification
+        type="success"
+        message="Hello world!"
+        isOpen={isOpenNote}
+        setIsOpen={setIsOpenNote}
+        time={60000}
       />
     </div>
   );

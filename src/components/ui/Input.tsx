@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-interface IInput {
+interface IProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   placeholder: string;
   className?: string;
@@ -12,7 +12,7 @@ interface IInput {
   onFocus?: () => void;
 }
 
-const Input: React.FC<IInput> = (props): JSX.Element => {
+const Input: React.FC<IProps> = (props): JSX.Element => {
   const { size, placeholder, className, disabled, onChange, value } = props;
 
   return (

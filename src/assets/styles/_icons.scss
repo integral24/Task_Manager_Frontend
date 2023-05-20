@@ -24,6 +24,9 @@
   @include svg-icon('fire', 16px, 16px);
   @include svg-icon('note', 16px, 16px);
   @include svg-icon('infocircle', 16px, 16px);
+  @include svg-icon('success', 22px, 22px);
+  @include svg-icon('message', 22px, 22px);
+  @include svg-icon('error', 22px, 22px);
 }
 
 button:hover {
