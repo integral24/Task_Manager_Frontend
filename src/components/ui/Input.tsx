@@ -7,13 +7,17 @@ interface IInput {
   className?: string;
   disabled?: boolean;
   value: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
   onInput?: () => void;
   onFocus?: () => void;
 }
 
 const Input: React.FC<IInput> = (props): JSX.Element => {
   const { size, placeholder, className, disabled, onChange, value } = props;
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
+  };
 
   return (
     <input
@@ -23,7 +27,7 @@ const Input: React.FC<IInput> = (props): JSX.Element => {
         [className ? className : '']: !!className,
       })}
       placeholder={placeholder}
-      onChange={onChange}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeHandler(e)}
       disabled={disabled}
       type="input"
       value={value}

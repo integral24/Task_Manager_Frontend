@@ -18,8 +18,12 @@ const App: React.FC = () => {
             <Link to="/about">About</Link>
           </nav>
           <Routes>
-            <Route index path="/" element={wrapper(<MainPage />)} />
-            <Route path="/about" element={wrapper(<About />)} />
+            <Route
+              index
+              path="/"
+              element={wrapper(<MainPage sidebar={true} />)}
+            />
+            <Route path="/about" element={wrapper(<About sidebar={true} />)} />
           </Routes>
         </div>
       </div>
