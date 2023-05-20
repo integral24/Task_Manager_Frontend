@@ -1,11 +1,11 @@
 .list-enter-active {
-  animation: show-in .3s;
+  animation: show-in 0.3s;
 }
 .list-leave-active {
-  animation: show-in .3s reverse;
+  animation: show-in 0.3s reverse;
 }
 .list-move {
-  animation: show-in .3s reverse;
+  animation: show-in 0.3s reverse;
 }
 @keyframes show-in {
   0% {
@@ -35,7 +35,6 @@
 }
 
 .slide-top {
-
   &-enter-active {
     animation: slide-top-in 0.5s;
   }
@@ -58,9 +57,6 @@
   }
 }
 
-
-
-
 .rtg-jo-enter {
   opacity: 0;
 }
@@ -80,6 +76,7 @@
 }
 
 // Фейд с легким вылетом сверху
+
 .rtg-ft-enter {
   transform: translate(0, -20px);
   opacity: 0;
@@ -107,6 +104,7 @@
 }
 
 // Снизу вверх
+
 .rtg-oe-enter {
   transform: translate(0, 100%);
   opacity: 0;
@@ -152,24 +150,31 @@
   transition: all 2s ease-in-out;
 }
 
-// slide open
-.rtg-sc-enter {
-  max-height: 0;
+// slide open close
+
+.slide-an-enter {
+  transform: translate(0, -20px);
+  opacity: 0;
 }
 
-.rtg-sc-enter-active {
-  max-height: 600px;
+.slide-an-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: 0.1s ease-in-out;
 }
 
-.rtg-sc-exit {
-  max-height: 600px;
+.slide-an-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: 0.1s ease-in-out;
 }
 
-.rtg-sc-exit-active {
-  max-height: 0;
+.slide-an-exit-active {
+  transform: translate(0, -20px);
+  opacity: 0;
+  transition: 0.15s ease-in-out;
 }
 
-.rtg-sc-enter-done {
-  max-height: 600px;
+.slide-an {
+  transition: 0.1s ease-in-out;
 }
-

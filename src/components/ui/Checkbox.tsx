@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useId } from 'react';
 import cn from 'classnames';
-import { getUnicID } from '@/helpers';
 
-const ID = getUnicID('checkbox');
-
-interface ICheckbox {
+interface IProps {
   className?: string;
   labelText?: string;
   name?: string;
@@ -12,8 +9,9 @@ interface ICheckbox {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox: React.FC<ICheckbox> = (props): JSX.Element => {
+const Checkbox: React.FC<IProps> = (props): JSX.Element => {
   const { className, labelText, name, checked, onChange } = props;
+  const id = useId();
 
   return (
     <div>
@@ -24,12 +22,12 @@ const Checkbox: React.FC<ICheckbox> = (props): JSX.Element => {
           active: checked,
         })}
         type="checkbox"
-        id={ID}
+        id={id}
         name={name}
         defaultChecked={checked}
         onChange={onChange}
       />
-      <label htmlFor={ID}>{labelText}</label>
+      <label htmlFor={id}>{labelText}</label>
     </div>
   );
 };

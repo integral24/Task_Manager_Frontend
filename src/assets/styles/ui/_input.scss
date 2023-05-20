@@ -1,0 +1,21 @@
+.input {
+  background-color: #a8abb7;
+  border-radius: 3px;
+
+  &.sm {
+    padding: 2px;
+  }
+  &.md {
+    padding: 4px;
+  }
+  &.lg {
+    padding: 6px;
+  }
+  &.xl {
+    padding: 8px;
+  }
+
+  &::placeholder {
+    color: #7d7f85;
+  }
+}

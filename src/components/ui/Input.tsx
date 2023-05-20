@@ -1,9 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
-interface IInput {
+interface IProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  borderRadius: 'br-1' | 'br-2' | 'br-3';
   placeholder: string;
   className?: string;
   disabled?: boolean;
@@ -13,23 +12,14 @@ interface IInput {
   onFocus?: () => void;
 }
 
-const Input: React.FC<IInput> = (props): JSX.Element => {
-  const {
-    size,
-    placeholder,
-    className,
-    borderRadius,
-    disabled,
-    onChange,
-    value,
-  } = props;
+const Input: React.FC<IProps> = (props): JSX.Element => {
+  const { size, placeholder, className, disabled, onChange, value } = props;
 
   return (
     <input
       className={cn({
         input: true,
         [size || 'md']: true,
-        [borderRadius]: !!borderRadius,
         [className ? className : '']: !!className,
       })}
       placeholder={placeholder}

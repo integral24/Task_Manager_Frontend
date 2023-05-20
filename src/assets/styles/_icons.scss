@@ -4,13 +4,13 @@
     background-size: contain;
     width: $width;
     height: $height;
-    background-image: url("../images/icons/#{$path}.svg");
+    background-image: url('../images/icons/#{$path}.svg');
     background-position: 50%;
     background-repeat: no-repeat;
     line-height: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    transition: $hover-delay ease-in-out all;
+    transition: 0.1s ease-in-out all;
   }
 
   &.pointer {
@@ -18,18 +18,18 @@
   }
 }
 
-@mixin svg-icon-white($path, $width, $height) {
-  &.#{$path} {
-    background-image: url("../images/icons/#{$path}-white.svg");
-  }
-}
-
 .svg-icon {
-
+  @include svg-icon('arrow-up', 16px, 16px);
+  @include svg-icon('arrow-down', 16px, 16px);
+  @include svg-icon('fire', 16px, 16px);
+  @include svg-icon('note', 16px, 16px);
+  @include svg-icon('infocircle', 16px, 16px);
+  @include svg-icon('success', 22px, 22px);
+  @include svg-icon('message', 22px, 22px);
+  @include svg-icon('error', 22px, 22px);
 }
 
 button:hover {
   .svg-icon {
-
   }
 }

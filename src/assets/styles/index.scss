@@ -1,6 +1,7 @@
 @import './variables';
 @import './reset';
 @import './animation';
+@import './icons';
 @import './ui/index';
 
 body {
@@ -12,6 +13,12 @@ body {
   color: $text-primary;
 }
 
-
-
-
+.br-1 {
+  border-radius: $br1;
+}
+.br-2 {
+  border-radius: $br2;
+}
+.br-3 {
+  border-radius: $br3;
+}

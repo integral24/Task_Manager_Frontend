@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
-import { useAppSelector } from '@/hooks/redux';
-import { RootState } from '@/redux/store';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Modal from '@/components/ui/Modal';
 import Checkbox from '@/components/ui/Checkbox';
 import Select from '@/components/ui/Select';
+import Notification from '@/components/ui/Notification';
 
-const MainPage: React.FC = () => {
-  const tasks = useAppSelector((state: RootState) => state.taskSlice.tasks);
-
+const MainPage: React.FC = (): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpenNote, setIsOpenNote] = useState<boolean>(false);
   const [check, setCheck] = useState<boolean>(false);
   const [optionCurrentTitle, setOptionCurrentTitle] =
     useState<string>('Срочные');
 
   const isOpenHandler = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpenNote((prev) => !prev);
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,16 +28,16 @@ const MainPage: React.FC = () => {
 
   const optionItem = [
     {
-      title: 'Срочные',
-      icon: 'ссылка на иконку',
+      title: 'Горящие',
+      icon: 'fire',
     },
     {
       title: 'Важные',
-      icon: 'ссылка на иконку',
+      icon: 'infocircle',
     },
     {
-      title: 'Бесполезные',
-      icon: 'ссылка на иконку',
+      title: 'Тривиальные',
+      icon: 'note',
     },
   ];
 
@@ -55,12 +53,8 @@ const MainPage: React.FC = () => {
         type="button"
         borderRadius="br2"
       />
-      <Input
-        borderRadius="br-2"
-        placeholder="Login"
-        value={value}
-        onChange={onChangeHandler}
-      />
+      <br />
+      <Input placeholder="Login" value={value} onChange={onChangeHandler} />
       <Modal close={isOpenHandler} type="full" isOpen={isOpen}>
         <div>My some modal </div>
       </Modal>
@@ -73,6 +67,13 @@ const MainPage: React.FC = () => {
         options={optionItem}
         optionCurrentTitle={optionCurrentTitle}
         setOptionCurrentTitle={setOptionCurrentTitle}
+      />
+      <Notification
+        type="success"
+        message="Hello world!"
+        isOpen={isOpenNote}
+        setIsOpen={setIsOpenNote}
+        time={60000}
       />
     </div>
   );
