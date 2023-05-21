@@ -14,23 +14,23 @@ $text-primary: #e4e8f7;
 $text-active: #dbdbdb;
 $svg-elements-light: #dbdbdb;
 $input-dark-bg: #6c717d;
+$input: #8b8d92;
 
 $hover-delay: 0.3s;
 
-$grid-breakpoints: (
-  xs: 0,
-  xss: 340px,
-  se: 376px,
-  ss: 420px,
-  xsm: 480px,
-  sm: 576px,
-  md: 768px,
-  ls: 860px,
-  lg: 1024px,
-  xl: 1200px,
-  mxl: 1360px,
-  xxl: 1500px,
-);
+// $grid-breakpoints: (
+//   xs: 0,
+//   xss: 340px,
+//   se: 376px,
+//   ss: 420px,
+//   xsm: 480px,
+//   sm: 576px,
+//   md: 768px,
+//   ls: 860px,
+//   lg: 1024px,
+//   xl: 1200px,
+//   mxl: 1360px,
+// );
 
 $container-max-widths: (
   sm: 100%,

@@ -1,5 +1,9 @@
 .button {
   color: $text-primary;
+
+  &:active {
+    transform: scale(.99);
+  }
   
   &.primary {
     background-color: $button-disable;

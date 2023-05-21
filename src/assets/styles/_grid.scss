@@ -27,20 +27,6 @@ $grid-breakpoints: (
   lg: 1480px,
 ) !default;
 
-$grid-card: (
-  1279px: 320px,
-  736px: 310px,
-  620px: 310px,
-  560px: 310px,
-  400px: 290px,
-) !default;
-
-// Grid containers
-// Define the maximum width of `.container` for different screen sizes.
-
-$card-width: 270px;
-$max-container-width: 1336px;
-
 $container-max-widths: (
   xs: 450px,
   s: 560px,
@@ -49,6 +35,18 @@ $container-max-widths: (
   lg: 1336px,
   //$max-container-width // 1336
 ) !default;
+
+// media quaries for container
+@mixin media-container($breakpoint) {
+  @if map-has_key($container-max-widths, $breakpoint) {
+    @media screen and (max-width: calc(map_get($container-max-widths, $breakpoint ) - 1)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
 
 // media down
 @mixin media-breakpoint-down($breakpoint) {
@@ -64,13 +62,13 @@ $container-max-widths: (
 
 //media up
 
-@mixin media-breakpoint-up($breakpoint) {
-  @if map-has_key($grid-breakpoints, $breakpoint) {
-    @media screen and (min-width: map_get($grid-breakpoints, $breakpoint)) {
-      @content;
-    }
-  } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Please make sure it is defined in `$breakpoints` map.";
-  }
-}
+// @mixin media-breakpoint-up($breakpoint) {
+//   @if map-has_key($grid-breakpoints, $breakpoint) {
+//     @media screen and (min-width: map_get($grid-breakpoints, $breakpoint)) {
+//       @content;
+//     }
+//   } @else {
+//     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+//         + "Please make sure it is defined in `$breakpoints` map.";
+//   }
+// }

@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface IProps {
-  sidebar: boolean;
-}
-
-const About: React.FC<IProps> = (props) => {
+const About: React.FC = () => {
   return <div className="page">About</div>;
 };
 
