@@ -1,15 +1,14 @@
 .select {
   max-width: 250px;
-  overflow: hidden;
+  width: min-content;
   cursor: pointer;
-  font-size: 14px;
-
-  margin-left: 100px;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
 
   $select: &;
 
   &__current-title {
-    text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 2px;
@@ -17,7 +16,7 @@
     background: #232833;
     padding: 10px;
     border-radius: $br1;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   &__options {
@@ -29,9 +28,10 @@
     overflow: hidden;
     cursor: pointer;
     padding: 10px;
+    position: absolute;
+    right: 0;
 
     div {
-      text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 5px;

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-// import { ITask } from '../../types/TasksTypes';
-import { ITask } from '@/types/TasksTypes';
+import { apiTasks } from '@/http/api';
+import { ITask } from '@/types/tasksTypes';
 
 interface ITaskState {
   tasks: ITask[];
@@ -9,10 +9,11 @@ interface ITaskState {
 const initialState: ITaskState = {
   tasks: [
     {
-      idTask: 1,
-      titleTask: 'titleTask',
-      textTask: 'textTask',
-      statusTask: 'done',
+      id: 1,
+      title: 'titleTask',
+      text: 'textTask',
+      type: 'Тривиальные',
+      status: 'done',
     },
   ],
 };

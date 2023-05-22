@@ -1,4 +1,4 @@
-import BlockManageTasks from '@/components/BlockManageTasks';
+import BlockManageTasks from '@/components/main/BlockManageTasks';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { useState } from 'react';
@@ -25,15 +25,7 @@ const MainPage: React.FC = (): JSX.Element => {
             borderRadius="br1"
           />
         </div>
-        <div className="main-page__buttons">
-          <Button
-            size="xl"
-            text="Создать Дело"
-            color="primary"
-            type="button"
-            borderRadius="br1"
-          />
-        </div>
+        <div className="main-page__buttons"></div>
 
         <BlockManageTasks />
       </div>

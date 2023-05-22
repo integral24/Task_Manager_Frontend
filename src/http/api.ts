@@ -1,11 +1,11 @@
 import http from './http';
-import { ITask } from '../types/TasksTypes';
+import { ITask } from '@/types/tasksTypes';
 
 export const apiTasks = {
   async getTasks() {
     try {
       const res = await http.get('/tasks');
-      return res.data;
+      return res.data as ITask[];
     } catch (err) {
       console.log(err);
     }
