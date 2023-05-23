@@ -9,6 +9,8 @@ import Checkbox from '@/components/ui/Checkbox';
 const MainPage: React.FC = () => {
   const tasks = useAppSelector((state: RootState) => state.taskSlice.tasks);
 
+  console.log(tasks);
+
   const [value, setValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [check, setCheck] = useState<boolean>(false);

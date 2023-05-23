@@ -21,7 +21,9 @@ const taskSlice = createSlice({
   name: 'taskSlice',
   initialState,
   reducers: {
-    addTask(state: ITaskState, action: PayloadAction<ITask>) {},
+    addTask(state: ITaskState, action: PayloadAction<ITask>) {
+      console.log(state, action);
+    },
   },
 });
 

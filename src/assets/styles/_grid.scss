@@ -53,7 +53,7 @@ $container-max-widths: (
 // media down
 @mixin media-breakpoint-down($breakpoint) {
     @if map-has_key($grid-breakpoints, $breakpoint) {
-        @media screen and (max-width: map_get($grid-breakpoints, $breakpoint ) - 1) {
+        @media screen and (max-width: map_get(($grid-breakpoints, $breakpoint ) - 1)) {
             @content;
         }
     } @else {
