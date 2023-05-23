@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import ErrorBoundary from './components/ErrorBoundary';
 const MainPage = React.lazy(() => import('@pages/MainPage'));
 const About = React.lazy(() => import('@pages/About'));
 

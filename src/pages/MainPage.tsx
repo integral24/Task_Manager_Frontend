@@ -14,6 +14,8 @@ const MainPage: React.FC = (): JSX.Element => {
   const [optionCurrentTitle, setOptionCurrentTitle] =
     useState<string>('Срочные');
 
+  console.log(setIsOpen);
+
   const isOpenHandler = () => {
     setIsOpenNote((prev) => !prev);
   };
