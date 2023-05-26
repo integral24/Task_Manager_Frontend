@@ -3,13 +3,15 @@
 @import './animation';
 @import './icons';
 @import './ui/index';
+@import './pages/index';
+@import './common';
 
 body {
   background-color: $body-blue;
   padding: 0 calc(20px - (100vw - 100%)) 0 0;
   font-family: 'Fira Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   color: $text-primary;
 }
 

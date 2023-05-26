@@ -1,6 +1,10 @@
 .input {
-  background-color: #a8abb7;
-  border-radius: 3px;
+  background-color: initial;
+  border-radius: $br1;
+  // border: 1px solid $svg-elements-light;
+  outline: 1px solid $input;
+  transition: 0.1s;
+  color: #fff;
 
   &.sm {
     padding: 2px;
@@ -17,5 +21,9 @@
 
   &::placeholder {
     color: #7d7f85;
+  }
+
+  &:focus {
+    outline: 1px solid lighten($input, 30%);
   }
 }
