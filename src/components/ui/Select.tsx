@@ -48,12 +48,16 @@ const Select: React.FC<ISelect> = (props): JSX.Element => {
         <div className="select__options" ref={nodeRef}>
           {options.map(({ title, icon }) => (
             <div key={title} onClick={() => setOptionCurrentTitle(title)}>
-              <span
-                className={cn({
-                  select__icon: true,
-                  [icon ? 'svg-icon ' + icon : '']: !!icon,
-                })}
-              />
+              {icon && (
+                <span
+                  className={cn({
+                    select__icon: true,
+                    'svg-icon': true,
+                    [icon]: true,
+                  })}
+                />
+              )}
+
               <span className="select__title">{title}</span>
             </div>
           ))}

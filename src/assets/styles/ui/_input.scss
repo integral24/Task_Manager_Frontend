@@ -3,7 +3,8 @@
   border-radius: $br1;
   // border: 1px solid $svg-elements-light;
   outline: 1px solid $input;
-  transition: .1s;
+  transition: 0.1s;
+  color: #fff;
 
   &.sm {
     padding: 2px;
@@ -23,6 +24,6 @@
   }
 
   &:focus {
-    outline: 1px solid lighten($input, 30%)
+    outline: 1px solid lighten($input, 30%);
   }
 }

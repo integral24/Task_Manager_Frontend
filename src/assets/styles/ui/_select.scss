@@ -44,7 +44,7 @@
 
   &.open {
     #{$select}__options {
-      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
     #{$select}__current-title {
       border-bottom-left-radius: 0;
