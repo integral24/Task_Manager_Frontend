@@ -1,58 +1,34 @@
-import React, { useState } from 'react';
-import { useAppSelector } from '@/hooks/redux';
-import { RootState } from '@/redux/store';
+import BlockManageTasks from '@/components/main/BlockManageTasks';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import Modal from '@/components/ui/Modal';
-import Checkbox from '@/components/ui/Checkbox';
+import { useState } from 'react';
 
-const MainPage: React.FC = () => {
-  const tasks = useAppSelector((state: RootState) => state.taskSlice.tasks);
-
-  console.log(tasks);
-
-  const [value, setValue] = useState<string>('');
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [check, setCheck] = useState<boolean>(false);
-
-  const isOpenHandler = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  const onCheckHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCheck(e.target.checked);
-  };
+const MainPage: React.FC = (): JSX.Element => {
+  const [nameTask, setNameTask] = useState<string>('');
 
   return (
-    <div className="page">
-      <h1>Main Page</h1>
-      <Button
-        size="lg"
-        text="Press here"
-        color="secondary"
-        className="Cool"
-        onClick={isOpenHandler}
-        type="button"
-        borderRadius="br2"
-      />
-      <Input
-        borderRadius="br-2"
-        placeholder="Login"
-        value={value}
-        onChange={onChangeHandler}
-      />
-      <Modal close={isOpenHandler} type="full" isOpen={isOpen}>
-        <div>My some modal </div>
-      </Modal>
-      <Checkbox
-        checked={check}
-        onChange={onCheckHandler}
-        labelText="Check it here"
-      />
+    <div className="page main-page">
+      <div className="content-page">
+        <div className="main-page__top-block">
+          <Input
+            size="xl"
+            onChange={setNameTask}
+            placeholder="Напишите задачу здесь.."
+            value={nameTask}
+            className="main-page__main-input"
+          />
+          <Button
+            size="xl"
+            text="Создать Дело"
+            color="primary"
+            type="button"
+            borderRadius="br1"
+          />
+        </div>
+        <div className="main-page__buttons"></div>
+
+        <BlockManageTasks />
+      </div>
     </div>
   );
 };

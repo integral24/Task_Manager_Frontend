@@ -12,7 +12,7 @@ interface IProps {
 
 const modalPortal = document.getElementById('modal');
 
-const Modal: React.FC<IProps> = (props) => {
+const Modal: React.FC<IProps> = (props): JSX.Element => {
   const { type, isOpen, children, close } = props;
   const nodeRef = useRef(null);
 

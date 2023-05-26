@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-interface Ibutton {
+interface IProps {
   size: 'sm' | 'md' | 'lg' | 'xl';
   text: string;
   className?: string;
@@ -12,7 +12,7 @@ interface Ibutton {
   borderRadius: 'br0' | 'br1' | 'br2' | 'br3';
 }
 
-const Button: React.FC<Ibutton> = (props: Ibutton): JSX.Element => {
+const Button: React.FC<IProps> = (props): JSX.Element => {
   const {
     size,
     text,

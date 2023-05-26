@@ -1,4 +1,4 @@
-@use "sass:selector";
+@use 'sass:selector';
 
 $br0: 0px;
 $br1: 5px;
@@ -6,29 +6,31 @@ $br2: 10px;
 $br3: 50%;
 
 $body-dark-blue: #141821;
-$body-blue: #161A24;
-$menu-background: #1F232D;
-$button-active: #304F9C;
-$button-disable: #393C45;
-$text-primary: #E4E8F7;
-$text-active: #DBDBDB;
-$svg-elements-light: #DBDBDB;
+$body-blue: #161a24;
+$menu-background: #1f232d;
+$button-active: #304f9c;
+$button-disable: #393c45;
+$text-primary: #e4e8f7;
+$text-active: #dbdbdb;
+$svg-elements-light: #dbdbdb;
 $input-dark-bg: #6c717d;
+$input: #8b8d92;
 
-$grid-breakpoints: (
-  xs: 0,
-  xss: 340px,
-  se: 376px,
-  ss: 420px,
-  xsm: 480px,
-  sm: 576px,
-  md: 768px,
-  ls: 860px,
-  lg: 1024px,
-  xl: 1200px,
-  mxl: 1360px,
-  xxl: 1500px,
-);
+$hover-delay: 0.3s;
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   xss: 340px,
+//   se: 376px,
+//   ss: 420px,
+//   xsm: 480px,
+//   sm: 576px,
+//   md: 768px,
+//   ls: 860px,
+//   lg: 1024px,
+//   xl: 1200px,
+//   mxl: 1360px,
+// );
 
 $container-max-widths: (
   sm: 100%,
@@ -62,17 +64,41 @@ $container-max-widths: (
 }
 
 @mixin fade-placeholder() {
-  input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
-  input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
-  input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
-  input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
-  input:focus::-webkit-input-placeholder {opacity: 0.3; transition: opacity 0.3s ease;}
-  input:focus::-moz-placeholder          {opacity: 0.3; transition: opacity 0.3s ease;}
-  input:focus:-moz-placeholder           {opacity: 0.3; transition: opacity 0.3s ease;}
-  input:focus:-ms-input-placeholder      {opacity: 0.3; transition: opacity 0.3s ease;}
+  input::-webkit-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  input::-moz-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  input:-moz-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  input:-ms-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  input:focus::-webkit-input-placeholder {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  input:focus::-moz-placeholder {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  input:focus:-moz-placeholder {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  input:focus:-ms-input-placeholder {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
 }
 
-@mixin label-icon-product-circle ($size: 24px, $bg) {
+@mixin label-icon-product-circle($size: 24px, $bg) {
   width: max-content;
   height: $size;
   border-radius: $size;

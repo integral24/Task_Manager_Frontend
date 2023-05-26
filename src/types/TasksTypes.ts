@@ -1,6 +1,7 @@
 export interface ITask {
-  idTask: number;
-  titleTask: string;
-  textTask: string;
-  statusTask: 'done' | 'active';
+  id: number;
+  title: string;
+  text: string;
+  type: 'Горящие' | 'Важные' | 'Тривиальные';
+  status: 'done' | 'active';
 }
