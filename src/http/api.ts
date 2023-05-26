@@ -1,5 +1,5 @@
 import http from './http';
-import { ITask } from '@/types/tasksTypes';
+import { ITask } from '../types/TasksTypes';
 
 export const apiTasks = {
   async getTasks() {
