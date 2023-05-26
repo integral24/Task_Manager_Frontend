@@ -1,4 +1,4 @@
-import { ITask } from '@/types/tasksTypes';
+import { ITask } from '../../types/TasksTypes';
 
 export default [
   {

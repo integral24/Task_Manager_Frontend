@@ -1,4 +1,4 @@
-import { ITask } from '@/types/tasksTypes';
+import { ITask } from '../../types/TasksTypes';
 
 interface IProps {
   tasks: ITask[];
