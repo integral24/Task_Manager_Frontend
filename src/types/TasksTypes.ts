@@ -1,7 +1,8 @@
 export interface ITask {
-  id: number;
+  id?: number;
+  userId?: number;
   title: string;
-  text: string;
+  description: string;
   type: 'Горящие' | 'Важные' | 'Тривиальные';
-  status: 'done' | 'active';
+  done: boolean;
 }

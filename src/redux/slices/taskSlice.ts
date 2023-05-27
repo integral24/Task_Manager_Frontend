@@ -1,33 +1,36 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-// import { apiTasks } from '@/http/api';
 import { ITask } from '../../types/TasksTypes';
+import * as api from './actionsTasks';
 
-interface ITaskState {
+interface IState {
   tasks: ITask[];
 }
 
-const initialState: ITaskState = {
-  tasks: [
-    {
-      id: 1,
-      title: 'titleTask',
-      text: 'textTask',
-      type: 'Тривиальные',
-      status: 'done',
-    },
-  ],
+const initialState: IState = {
+  tasks: [],
 };
 
 const taskSlice = createSlice({
   name: 'taskSlice',
   initialState,
-  reducers: {
-    addTask(state: ITaskState, action: PayloadAction<ITask>) {
-      console.log(state, action);
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    // Create task
+    // Get tasks
+    builder.addCase(api.getTasks.pending, (state) => {
+      state.tasks = [];
+    });
+    builder.addCase(api.getTasks.fulfilled, (state, action) => {
+      state.tasks = action.payload;
+    });
+    builder.addCase(api.getTasks.rejected, (state) => {
+      state.tasks = [];
+    });
+    // Get task
+    // Update task
+    // Delete task
   },
 });
 
-export const { addTask } = taskSlice.actions;
-
+// export const {  } = taskSlice.actions;
 export default taskSlice.reducer;
