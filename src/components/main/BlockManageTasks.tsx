@@ -7,7 +7,7 @@ import { getTasks } from '@/redux/slices/actionsTasks';
 const BlockManageTasks: React.FC = () => {
   const dispatch = useAppDispatch();
   const { tasks } = useAppSelector((state) => state.taskSlice);
-  const [optionCurrentTitle, setOptionCurrentTitle] = useState('Важные');
+  const [optionCurrentTitle, setOptionCurrentTitle] = useState('Обычные');
 
   useEffect(() => {
     dispatch(getTasks(1));
@@ -15,7 +15,7 @@ const BlockManageTasks: React.FC = () => {
 
   const optionItem = [
     {
-      title: 'Горящие',
+      title: 'Срочные',
       icon: 'fire',
     },
     {
@@ -23,7 +23,7 @@ const BlockManageTasks: React.FC = () => {
       icon: 'infocircle',
     },
     {
-      title: 'Тривиальные',
+      title: 'Обычные',
       icon: 'note',
     },
   ];

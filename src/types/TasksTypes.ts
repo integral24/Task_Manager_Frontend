@@ -3,6 +3,6 @@ export interface ITask {
   userId?: number;
   title: string;
   description: string;
-  type: 'Горящие' | 'Важные' | 'Тривиальные';
+  type: 'Срочные' | 'Важные' | 'Обычные';
   done: boolean;
 }
