@@ -1,6 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navigation, { IRoutes } from './components/Navigation';
+import { interceptorsSetup } from './http/interceptorsSetup';
+import { store } from './redux/store';
+import http from './http/http';
 const MainPage = React.lazy(() => import('@pages/MainPage'));
 const About = React.lazy(() => import('@pages/About'));
 
@@ -21,6 +24,7 @@ const App: React.FC = () => {
       name: 'О нас',
     },
   ];
+  useEffect(() => interceptorsSetup(http, store.getState()), []);
   return (
     <div className="app">
       <Navigation routes={menu} />

@@ -1,4 +1,4 @@
-import { TOKEN_TTL } from './apiConfig';
+import { TOKEN_TTL } from './apiAuthConfig';
 
 type TJwt = {
   token: string;
@@ -30,7 +30,7 @@ class TokenService {
     }
   }
 
-  getToken(): unknown {
+  getToken(): string {
     return (
       JSON.parse(<string>localStorage.getItem('jwt'))?.token || this._jwt.token
     );
