@@ -6,7 +6,7 @@ import { getTasks } from '@/redux/slices/actions/actionsTasks';
 
 const BlockManageTasks: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { tasks } = useAppSelector((state) => state.taskSlice);
+  const tasks = useAppSelector((state) => state.taskSlice.tasks);
   const [optionCurrentTitle, setOptionCurrentTitle] = useState('Обычные');
 
   useEffect(() => {
@@ -41,7 +41,11 @@ const BlockManageTasks: React.FC = () => {
         </div>
       </div>
       <div className="block-tasks__bottom">
-        <Tasks tasks={tasks} />
+        {tasks && tasks.length ? (
+          <Tasks tasks={tasks} />
+        ) : (
+          <div>У вас нет дел</div>
+        )}
       </div>
     </div>
   );
