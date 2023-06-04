@@ -10,7 +10,7 @@ const BlockManageTasks: React.FC = () => {
   const [optionCurrentTitle, setOptionCurrentTitle] = useState('Обычные');
 
   useEffect(() => {
-    dispatch(getTasks(1));
+    dispatch(getTasks());
   }, []);
 
   const optionItem = [
