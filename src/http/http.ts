@@ -11,5 +11,5 @@ export default axios.create({
       'Content-Type': 'application/json',
     },
   },
-  withCredentials: false,
+  withCredentials: true,
 });
