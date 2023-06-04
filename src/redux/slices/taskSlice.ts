@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ITask } from '../../types/TasksTypes';
-import * as api from './actionsTasks';
+import * as api from './actions/actionsTasks';
 
 interface IState {
   tasks: ITask[];
@@ -16,7 +16,6 @@ const taskSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // Create task
-    // Get tasks
     builder.addCase(api.getTasks.pending, (state) => {
       state.tasks = [];
     });

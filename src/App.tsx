@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation, { IRoutes } from './components/Navigation';
 const MainPage = React.lazy(() => import('@pages/MainPage'));
 const About = React.lazy(() => import('@pages/About'));
+const Auth = React.lazy(() => import('@/pages/Auth'));
 
 const wrapper = (component: ReactNode) => (
   <React.Suspense fallback={<>...load</>}>
@@ -20,6 +21,10 @@ const App: React.FC = () => {
       to: '/about',
       name: 'О нас',
     },
+    {
+      to: '/auth',
+      name: 'Войти',
+    },
   ];
   return (
     <div className="app">
@@ -27,6 +32,7 @@ const App: React.FC = () => {
       <Routes>
         <Route index path="/" element={wrapper(<MainPage />)} />
         <Route path="/about" element={wrapper(<About />)} />
+        <Route path="/auth" element={wrapper(<Auth />)} />
       </Routes>
     </div>
   );

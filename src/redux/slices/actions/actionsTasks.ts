@@ -1,5 +1,5 @@
-import http from '../../http/http';
-import { ITask } from '../../types/TasksTypes';
+import http from '../../../http/http';
+import { ITask } from '../../../types/TasksTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const createTask = createAsyncThunk(

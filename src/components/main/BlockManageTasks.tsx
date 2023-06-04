@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Select from '../ui/Select';
 import Tasks from './Tasks';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { getTasks } from '@/redux/slices/actionsTasks';
+import { getTasks } from '@/redux/slices/actions/actionsTasks';
 
 const BlockManageTasks: React.FC = () => {
   const dispatch = useAppDispatch();
