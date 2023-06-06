@@ -11,5 +11,7 @@ export const setToken = (token: Itoken) => {
 };
 
 export const getToken = () => {
-  return ls.get(KEY_STORAGE_TOKEN);
+  const token = ls.get(KEY_STORAGE_TOKEN);
+  console.log(token);
+  return token;
 };

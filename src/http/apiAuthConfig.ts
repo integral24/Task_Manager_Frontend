@@ -1,8 +1,8 @@
 export const urlAuth = {
-  AUTH: '/auth/login',
+  SINGIN: '/auth/signin',
+  SIGNUP: '/auth/signup',
+  SIGNOUT: '/auth/logout',
   REFRESH: '/auth/refresh',
-  CODE: '/auth/code',
-  LOGOUT: '/auth/logout',
 };
 
 export const TOKEN_TTL = 15 * 60;
