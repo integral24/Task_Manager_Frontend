@@ -32,10 +32,9 @@ export const interceptorsSetup = (
         return config;
       }
       if (getToken()) {
-        console.log('here get token if');
+        // console.log('here get token if');
         config.headers.Authorization = `Bearer ${getToken()}`;
       }
-      console.log('here 2');
       return config;
     },
     (error) => Promise.reject(error)
@@ -51,15 +50,14 @@ export const interceptorsSetup = (
           if (getToken()) {
             try {
               // Есть токен он просрочен получаем новый refresh
-
-              console.log('get refresh token');
+              // console.log('get refresh token');
             } catch (err) {
               // Обрабатываем и опрокидываем ошибку в стор
-              console.log(err, '1');
+              // console.log(err, '1');
             }
           } else {
             // иначе пробуем авторизоваться
-            console.log(error);
+            // console.log(error);
           }
 
           if (getToken()) {
@@ -69,9 +67,9 @@ export const interceptorsSetup = (
         }
       } catch (err) {
         // обработать ошибки
-        console.log(err);
+        // console.log(err);
       }
-      console.log(error);
+      // console.log(error);
       return Promise.reject(error);
     }
   );

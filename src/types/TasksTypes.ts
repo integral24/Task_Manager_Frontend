@@ -1,8 +1,9 @@
 export interface ITask {
-  id?: number;
+  id: number;
   userId?: number;
   title: string;
   description: string;
-  type: 'Срочные' | 'Важные' | 'Обычные';
   done: boolean;
+  createDate: string;
+  type: 'Срочные' | 'Важные' | 'Обычные';
 }
