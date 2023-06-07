@@ -29,7 +29,7 @@ const App: React.FC = () => {
       name: 'Войти',
     },
   ];
-  useEffect(() => interceptorsSetup(http, store.getState()), []);
+  // useEffect(() => interceptorsSetup(http, store.getState()), []);
   return (
     <div className="app">
       <Navigation routes={menu} />

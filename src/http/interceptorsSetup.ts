@@ -8,6 +8,7 @@ import axios, {
 } from 'axios';
 import { EAuthLocation } from './types';
 import { RootState } from '@/redux/store';
+import apiAuth from './apiAuth';
 
 const compareUrls = (compare: string, url: string) => {
   return compare.split('').includes(url);
@@ -53,13 +54,18 @@ export const interceptorsSetup = (
               // Есть токен он просрочен получаем новый refresh
 
               console.log('get refresh token');
+              const res = await apiAuth.refresh({
+                email: 'test@email.com',
+                password: '123456',
+              });
+              return await axios(error.config as AxiosRequestConfig);
             } catch (err) {
               // Обрабатываем и опрокидываем ошибку в стор
-              console.log(err, '1');
+              console.log(err);
             }
           } else {
             // иначе пробуем авторизоваться
-            console.log(error);
+            console.log(error, 'error need autorization');
           }
 
           if (getToken()) {
