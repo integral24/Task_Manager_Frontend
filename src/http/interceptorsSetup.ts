@@ -1,5 +1,5 @@
-import http from '@/http/http';
-import tokenService from '@/http/tokenService';
+// import http from '@/http/http';
+import { getToken } from '@/http/tokenService';
 import axios, {
   AxiosError,
   AxiosInstance,
@@ -23,6 +23,7 @@ const compareErrorToken = (error: AxiosError): boolean => {
 
 export const interceptorsSetup = (
   instance: AxiosInstance,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   store: RootState
 ) => {
   instance.interceptors.request.use(
@@ -30,9 +31,11 @@ export const interceptorsSetup = (
       if (compareUrls(EAuthLocation.refresh, config.url || '')) {
         return config;
       }
-      if (tokenService.getToken()) {
-        config.headers.Authorization = 'Bearer' + tokenService.getToken();
+      if (getToken()) {
+        console.log('here get token if');
+        config.headers.Authorization = `Bearer ${getToken()}`;
       }
+      console.log('here 2');
       return config;
     },
     (error) => Promise.reject(error)
@@ -40,27 +43,27 @@ export const interceptorsSetup = (
 
   instance.interceptors.response.use(
     (response) => {
-      console.log(response);
       return response;
     },
     async (error: AxiosError) => {
       try {
         if (compareErrorToken(error)) {
-          if (tokenService.isAuth()) {
+          if (getToken()) {
             try {
               // Есть токен он просрочен получаем новый refresh
+
+              console.log('get refresh token');
             } catch (err) {
               // Обрабатываем и опрокидываем ошибку в стор
-              console.log(err);
+              console.log(err, '1');
             }
           } else {
             // иначе пробуем авторизоваться
             console.log(error);
           }
 
-          if (tokenService.getToken()) {
-            axios.defaults.headers.common.Authorization =
-              'Bearer' + tokenService.getToken();
+          if (getToken()) {
+            axios.defaults.headers.common.Authorization = `Bearer ${getToken()}`;
           }
           return await axios(error.config as AxiosRequestConfig);
         }
