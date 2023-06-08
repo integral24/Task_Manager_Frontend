@@ -57,6 +57,7 @@ export const interceptorsSetup = (
                 email: 'test@email.com',
                 password: '123456',
               });
+              console.log(res);
               return await axios(error.config as AxiosRequestConfig);
             } catch (err) {
               // Обрабатываем и опрокидываем ошибку в стор

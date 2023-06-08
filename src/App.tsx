@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navigation, { IRoutes } from './components/Navigation';
-import { interceptorsSetup } from './http/interceptorsSetup';
-import { store } from './redux/store';
-import http from './http/http';
+// import { interceptorsSetup } from './http/interceptorsSetup';
+// import { store } from './redux/store';
+// import http from './http/http';
 const MainPage = React.lazy(() => import('@pages/MainPage'));
 const About = React.lazy(() => import('@pages/About'));
 const Auth = React.lazy(() => import('@/pages/Auth'));
