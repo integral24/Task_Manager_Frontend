@@ -9,7 +9,7 @@ const http = axios.create({
       'Content-Type': 'application/json',
     },
   },
-  withCredentials: false,
+  withCredentials: true,
 });
 
 export default http;

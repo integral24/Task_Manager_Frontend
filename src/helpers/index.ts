@@ -8,7 +8,6 @@ export const getUnicID = (prefix: string): string => {
 export const ls = {
   get(key: string) {
     const value = localStorage.getItem(key);
-    console.log(value);
     return value ? value : null;
   },
   set(key: string, value: any) {
