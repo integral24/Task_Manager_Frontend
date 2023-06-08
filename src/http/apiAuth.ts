@@ -15,20 +15,24 @@ class ApiAuth {
     this.http = axios;
   }
 
-  signIn(payload: IPayload) {
-    this.http?.post(urlAuth.SINGIN, payload);
+  async signIn(payload: IPayload) {
+    const res = await this.http?.post(urlAuth.SINGIN, payload);
+    return res?.data;
   }
 
-  signUp(payload: IPayload) {
-    this.http?.post(urlAuth.SIGNUP, payload);
+  async signUp(payload: IPayload) {
+    const res = await this.http?.post(urlAuth.SIGNUP, payload);
+    return res?.data;
   }
 
-  signOut(payload: IPayload) {
-    this.http?.post(urlAuth.SIGNOUT, payload);
+  async signOut(payload: IPayload) {
+    const res = await this.http?.post(urlAuth.SIGNOUT, payload);
+    return res?.data;
   }
 
-  refresh(payload: IPayload) {
-    this.http?.post(urlAuth.REFRESH, payload);
+  async refresh(payload: IPayload) {
+    const res = await this.http?.post(urlAuth.REFRESH, payload);
+    return res?.data;
   }
 }
 
