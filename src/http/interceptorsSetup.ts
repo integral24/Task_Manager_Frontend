@@ -1,19 +1,14 @@
 // import http from '@/http/http';
 import { getToken, setToken } from '@/http/tokenService';
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  CanceledError,
-} from 'axios';
+import { AxiosError, AxiosInstance, CanceledError } from 'axios';
 import { EAuthLocation } from './types';
 import { RootState } from '@/redux/store';
 import apiAuth from './apiAuth';
 
-const compareUrls = (compare: string, url: string) => {
-  console.log(url, compare, compare === url);
-  return compare === url;
-};
+// const compareUrls = (compare: string, url: string) => {
+//   console.log(url, compare, compare === url);
+//   return compare === url;
+// };
 
 const compareErrorToken = (error: AxiosError): boolean => {
   console.log(error.config?.url, EAuthLocation.refresh, error.response?.status);
