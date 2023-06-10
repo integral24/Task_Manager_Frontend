@@ -1,5 +1,5 @@
 // import http from '@/http/http';
-import { getToken } from '@/http/tokenService';
+import { getToken, setToken } from '@/http/tokenService';
 import axios, {
   AxiosError,
   AxiosInstance,
@@ -11,10 +11,12 @@ import { RootState } from '@/redux/store';
 import apiAuth from './apiAuth';
 
 const compareUrls = (compare: string, url: string) => {
-  return compare.split('').includes(url);
+  console.log(url, compare, compare === url);
+  return compare === url;
 };
 
 const compareErrorToken = (error: AxiosError): boolean => {
+  console.log(error.config?.url, EAuthLocation.refresh, error.response?.status);
   return (
     !(error instanceof CanceledError) &&
     error.response?.status === 401 &&
@@ -29,38 +31,46 @@ export const interceptorsSetup = (
 ) => {
   instance.interceptors.request.use(
     async (config) => {
-      if (compareUrls(EAuthLocation.refresh, config.url || '')) {
-        return config;
-      }
+      console.log('req');
+      // if (compareUrls(EAuthLocation.refresh, config.url as string)) {
+      //   console.log('req compareUrls');
+      //   return config;
+      // }
       if (getToken()) {
-        console.log('here get token if');
+        console.log('request get token if');
         config.headers.Authorization = `Bearer ${getToken()}`;
       }
-      console.log('here 2');
+      console.log('request 2');
       return config;
     },
     (error) => Promise.reject(error)
   );
-
+  let flag = true;
   instance.interceptors.response.use(
     (response) => {
+      console.log('res status 200');
       return response;
     },
     async (error: AxiosError) => {
+      console.log('compareErrorToken(error)', compareErrorToken(error));
       try {
         if (compareErrorToken(error)) {
-          if (getToken()) {
+          if (getToken() && flag) {
             try {
-              // Есть токен он просрочен получаем новый refresh
-
-              console.log('get refresh token');
+              flag = false;
               const res = await apiAuth.refresh({
                 email: 'test@email.com',
                 password: '123456',
               });
-              return await axios(error.config as AxiosRequestConfig);
+              console.log('res refresh', res);
+              setToken(res.successToken);
+
+              console.log('instance', error);
+              await instance({
+                ...error.config,
+              });
             } catch (err) {
-              // Обрабатываем и опрокидываем ошибку в стор
+              /** @TODO Обрабатываем и опрокидываем ошибку в стор */
               console.log(err);
             }
           } else {
@@ -69,13 +79,16 @@ export const interceptorsSetup = (
           }
 
           if (getToken()) {
-            axios.defaults.headers.common.Authorization = `Bearer ${getToken()}`;
+            console.log('gettoken', getToken());
+            instance.defaults.headers.common.Authorization = 'Bearer '.concat(
+              getToken() || ''
+            );
           }
-          return await axios(error.config as AxiosRequestConfig);
+          // return await axios(error.config as AxiosRequestConfig);
         }
       } catch (err) {
         // обработать ошибки
-        console.log(err);
+        console.log(err, 'req err');
       }
       console.log(error);
       return Promise.reject(error);

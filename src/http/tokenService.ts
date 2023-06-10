@@ -4,7 +4,7 @@ interface Itoken {
   successToken: string | null;
 }
 
-export const KEY_STORAGE_TOKEN = 'success_token';
+export const KEY_STORAGE_TOKEN = 'successToken';
 
 export const setToken = (token: Itoken) => {
   ls.set(KEY_STORAGE_TOKEN, token);

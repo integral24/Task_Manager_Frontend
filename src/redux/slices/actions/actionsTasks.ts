@@ -15,7 +15,8 @@ export const getTasks = createAsyncThunk(
   async (): Promise<ITask[]> => {
     console.log('get tasks');
     const res = await http.get(`/task/`);
-    return res.data;
+    console.log(res);
+    return Array.isArray(res.data) ? res.data : [];
   }
 );
 
