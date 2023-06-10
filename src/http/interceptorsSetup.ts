@@ -90,7 +90,7 @@ export const interceptorsSetup = (
         // обработать ошибки
         console.log(err, 'req err');
       }
-      console.log(error);
+      // console.log(error);
       return Promise.reject(error);
     }
   );
