@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import * as api from './actions/actionsAuth';
+import { setToken } from '@/http/tokenService';
 
 enum Status {
   LOADING = 'loading',
@@ -8,19 +9,23 @@ enum Status {
 }
 
 interface IState {
-  successToken: string;
   user: {
-    name: string;
+    id: number | null;
+    name: string | null;
+    email: string | null;
   };
   status: Status;
+  message: string | null;
 }
 
 const initialState: IState = {
-  successToken: '',
   user: {
-    name: '',
+    id: null,
+    name: null,
+    email: null,
   },
   status: Status.LOADING,
+  message: null,
 };
 
 const authSlice = createSlice({
@@ -32,8 +37,18 @@ const authSlice = createSlice({
       state.status = Status.LOADING;
     });
     builder.addCase(api.signUp.fulfilled, (state, action) => {
-      console.log(action.payload);
-      state.status = Status.SUCCESS;
+      if (action.payload.successToken) {
+        setToken(action.payload.successToken);
+        const { id, name, email } = action.payload.user;
+        state.user.id = id;
+        state.user.name = name;
+        state.user.email = email;
+      } else {
+        state.status = Status.ERROR;
+      }
+      // if и эррор и мессадж
+      // console.log(action.payload);
+      // state.status = Status.SUCCESS;
     });
     builder.addCase(api.signUp.rejected, (state) => {
       state.status = Status.ERROR;

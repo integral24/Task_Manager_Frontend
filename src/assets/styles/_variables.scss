@@ -2,19 +2,34 @@
 
 $br0: 0px;
 $br1: 5px;
-$br2: 10px;
+$br2: 25px;
 $br3: 50%;
 
-$body-dark-blue: #141821;
-$body-blue: #161a24;
+// $body-dark-blue: #141821;
+// $body-blue: #161a24;
+// $menu-background: #1f232d;
+// $button-active: #304f9c;
+// $button-disable: #393c45;
+// $text-primary: #e4e8f7;
+// $text-active: #dbdbdb;
+// $svg-elements-light: #dbdbdb;
+// $input-dark-bg: #6c717d;
+// $input: #8b8d92;
+
+$body-dark-blue: #151f32;
+$body-blue: #18273F;
 $menu-background: #1f232d;
+$input-background: #182D4B;
 $button-active: #304f9c;
-$button-disable: #393c45;
+$button-disable: #328AF1;
 $text-primary: #e4e8f7;
 $text-active: #dbdbdb;
 $svg-elements-light: #dbdbdb;
 $input-dark-bg: #6c717d;
 $input: #8b8d92;
+$input-text: rgb(186 217 252);
+$input-placeholder: rgb(186 217 252);
+$input-placeholder-focus: rgba(186, 217, 252, 0.1);
 
 $hover-delay: 0.3s;
 

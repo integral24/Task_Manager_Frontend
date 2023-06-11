@@ -7,7 +7,11 @@
 @import './common';
 
 body {
-  background-color: $body-blue;
+  // background-color: $body-blue;
+  background-color: $body-dark-blue;
+  background-image: url(../images/icons/upper-gradient.svg);
+  background-repeat: no-repeat;
+  background-size: 55%;
   // padding: 0 calc(20px - (100vw - 100%)) 0 0;
   font-family: 'Fira Sans', sans-serif;
   font-size: 14px;
