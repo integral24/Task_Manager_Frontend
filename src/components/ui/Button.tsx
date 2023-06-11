@@ -14,14 +14,14 @@ interface IProps {
 
 const Button: React.FC<IProps> = (props): JSX.Element => {
   const {
-    size = 'md',
+    size,
     text,
     className,
     color = 'primary',
     disabled,
     onClick,
     type = 'button',
-    borderRadius = 'br1',
+    borderRadius,
   } = props;
 
   return (
@@ -29,10 +29,10 @@ const Button: React.FC<IProps> = (props): JSX.Element => {
       onClick={onClick}
       className={cn({
         button: true,
-        [size]: true,
-        [className ? className : '']: !!className,
+        [size ? size : '']: !!size,
         [color]: true,
-        [borderRadius]: true,
+        [borderRadius ? borderRadius : '']: !!borderRadius,
+        [className ? className : '']: !!className,
       })}
       type={type}
       disabled={disabled}

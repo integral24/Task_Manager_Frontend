@@ -7,3 +7,11 @@ export interface ITask {
   createDate: string;
   type: 'Срочные' | 'Важные' | 'Обычные';
 }
+
+export interface ITaskCreate {
+  userId: number;
+  title: string;
+  description: string;
+  done: boolean;
+  type: string;
+}

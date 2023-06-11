@@ -7,13 +7,14 @@ interface IProps {
   className?: string;
   disabled?: boolean;
   value: string;
+  id?: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
   onInput?: () => void;
   onFocus?: () => void;
 }
 
 const Input: React.FC<IProps> = (props): JSX.Element => {
-  const { size, placeholder, className, disabled, onChange, value } = props;
+  const { size, placeholder, className, disabled, onChange, value, id } = props;
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
@@ -31,6 +32,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
       disabled={disabled}
       type="input"
       value={value}
+      id={id}
     />
   );
 };

@@ -3,7 +3,7 @@ import Signin from '@/components/auth/Signin';
 import Signup from '@/components/auth/Signup';
 import Button from '@/components/ui/Button';
 import { useAppDispatch } from '@/hooks/redux';
-import { signUp } from '@/redux/slices/actions/actionsAuth';
+import { signUp, signIn } from '@/redux/slices/actions/actionsAuth';
 
 type ITypeAuth = 'Войти' | 'Зарегистрироваться';
 
@@ -41,10 +41,14 @@ const Auth: React.FC = () => {
           pass,
         };
         dispatch(signUp(userData));
-      } else
-        console.log({
-          error: `passwords don't match`,
-        });
+      }
+    }
+    if (typeAuth === 'Войти' && email && pass) {
+      const userData = {
+        email,
+        pass,
+      };
+      dispatch(signIn(userData));
     }
   };
 
