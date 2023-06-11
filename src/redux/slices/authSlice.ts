@@ -38,20 +38,43 @@ const authSlice = createSlice({
     });
     builder.addCase(api.signUp.fulfilled, (state, action) => {
       if (action.payload.successToken) {
+        state.status = Status.SUCCESS;
         setToken(action.payload.successToken);
         const { id, name, email } = action.payload.user;
         state.user.id = id;
         state.user.name = name;
         state.user.email = email;
+        state.message = action.payload.message ?? '';
       } else {
         state.status = Status.ERROR;
+        console.log(action.payload);
       }
-      // if и эррор и мессадж
-      // console.log(action.payload);
-      // state.status = Status.SUCCESS;
     });
-    builder.addCase(api.signUp.rejected, (state) => {
+    builder.addCase(api.signUp.rejected, (state, action) => {
       state.status = Status.ERROR;
+      console.log(action.payload);
+    });
+
+    builder.addCase(api.signIn.pending, (state) => {
+      state.status = Status.LOADING;
+    });
+    builder.addCase(api.signIn.fulfilled, (state, action) => {
+      if (action.payload.successToken) {
+        state.status = Status.SUCCESS;
+        setToken(action.payload.successToken);
+        const { id, name, email } = action.payload.user;
+        state.user.id = id;
+        state.user.name = name;
+        state.user.email = email;
+        state.message = action.payload.message ?? '';
+      } else {
+        state.status = Status.ERROR;
+        console.log(action.payload);
+      }
+    });
+    builder.addCase(api.signIn.rejected, (state, action) => {
+      state.status = Status.ERROR;
+      console.log(action.payload);
     });
   },
 });

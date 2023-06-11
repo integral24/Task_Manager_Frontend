@@ -2,11 +2,27 @@ import BlockManageTasks from '@/components/main/BlockManageTasks';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { createTask } from '@/redux/slices/actions/actionsTasks';
 
 const MainPage: React.FC = (): JSX.Element => {
   const [titleValue, setTitleValue] = useState<string>('');
+  const { id } = useAppSelector((state) => state.authSlice.user);
+  const dispatch = useAppDispatch();
 
   const onClickClear = () => setTitleValue('');
+  const createNewTask = () => {
+    if (titleValue && id) {
+      const newTask = {
+        userId: id,
+        title: titleValue,
+        description: '',
+        done: false,
+        type: 'Обычные',
+      };
+      dispatch(createTask(newTask));
+    }
+  };
 
   return (
     <div className="page main-page">
@@ -35,6 +51,7 @@ const MainPage: React.FC = (): JSX.Element => {
             type="button"
             borderRadius="br1"
             className="main-button-create"
+            onClick={createNewTask}
           />
         </div>
         <div className="main-page__buttons"></div>

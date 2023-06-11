@@ -7,10 +7,16 @@ export interface IUser {
 export interface IResponseSign {
   successToken: string;
   user: IUser;
+  message?: string;
 }
 
-export interface IUserData {
+export interface IUserDataSignup {
   name: string;
+  email: string;
+  pass: string;
+}
+
+export interface IUserDataSignin {
   email: string;
   pass: string;
 }

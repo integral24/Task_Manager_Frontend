@@ -64,10 +64,10 @@
   border-radius: 25px;
   transition: 0.3s;
 
-  &:hover {
-    background-color: $input-background;
-    transition: 0.3s;
-  }
+  // &:hover {
+  //   background-color: $input-background;
+  //   transition: 0.3s;
+  // }
 }
 
 .block-tasks__bottom {
@@ -77,14 +77,14 @@
 .task-item {
   display: flex;
   gap: 10px;
-  border-bottom: 2px solid #24262f;
+  border-bottom: 2px solid $menu-background;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .task-item__title {
   font-weight: 400;
-  background: #24262f;
+  background: $menu-background;
   padding: 3px 15px;
   color: #fff;
 }
@@ -93,7 +93,7 @@
   color: #ffffff61;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
 .task-item:hover {
