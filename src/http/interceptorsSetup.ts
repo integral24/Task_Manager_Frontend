@@ -1,8 +1,10 @@
 // import http from '@/http/http';
 import { getToken, setToken } from '@/http/tokenService';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import axios, {
   AxiosError,
   AxiosInstance,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   AxiosRequestConfig,
   CanceledError,
 } from 'axios';
@@ -10,13 +12,13 @@ import { EAuthLocation } from './types';
 import { RootState } from '@/redux/store';
 import apiAuth from './apiAuth';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const compareUrls = (compare: string, url: string) => {
   console.log(url, compare, compare === url);
   return compare === url;
 };
 
 const compareErrorToken = (error: AxiosError): boolean => {
-  console.log(error.config?.url, EAuthLocation.refresh, error.response?.status);
   return (
     !(error instanceof CanceledError) &&
     error.response?.status === 401 &&
@@ -37,7 +39,6 @@ export const interceptorsSetup = (
       //   return config;
       // }
       if (getToken()) {
-        console.log('request get token if');
         config.headers.Authorization = `Bearer ${getToken()}`;
       }
       console.log('request 2');
@@ -59,13 +60,11 @@ export const interceptorsSetup = (
             try {
               flag = false;
               const res = await apiAuth.refresh({
-                email: 'test@email.com',
-                password: '123456',
+                email: 'alextest@mail.ru',
+                password: '12345',
               });
-              console.log('res refresh', res);
-              setToken(res.successToken);
 
-              console.log('instance', error);
+              if (res.successToken) setToken(res.successToken);
               await instance({
                 ...error.config,
               });
@@ -79,7 +78,6 @@ export const interceptorsSetup = (
           }
 
           if (getToken()) {
-            console.log('gettoken', getToken());
             instance.defaults.headers.common.Authorization = 'Bearer '.concat(
               getToken() || ''
             );

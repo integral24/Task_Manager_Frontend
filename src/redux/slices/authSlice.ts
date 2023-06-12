@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import * as api from './actions/actionsAuth';
+import { setToken } from '@/http/tokenService';
 
 enum Status {
   LOADING = 'loading',
@@ -33,6 +34,7 @@ const authSlice = createSlice({
     });
     builder.addCase(api.signUp.fulfilled, (state, action) => {
       console.log(action.payload);
+      setToken(action.payload?.successToken);
       state.status = Status.SUCCESS;
     });
     builder.addCase(api.signUp.rejected, (state) => {
