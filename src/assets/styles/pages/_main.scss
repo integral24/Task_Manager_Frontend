@@ -12,14 +12,15 @@
     .main-input-label {
       .svg-edit {
         background-image: url(../../images/icons/edit.svg);
-        width: 72px;
-        height: 42px;
+        width: 40px;
+        height: 100%;
         position: absolute;
         background-repeat: no-repeat;
         top: 0;
         left: 0;
         cursor: text;
         background-position: center;
+        
       }
 
       .svg-close {
@@ -36,6 +37,7 @@
 
       .main-input {
         width: 100%;
+        padding-left: 48px;
       }
     }
   }
@@ -44,10 +46,6 @@
     padding: 14px 20px;
     font-weight: 600;
     border-radius: 12px;
-
-    &:hover {
-      background-image: linear-gradient(90deg, #328AF1, #22C7F6);
-    }
   }
 
   // &__buttons {
@@ -55,37 +53,52 @@
 }
 
 .block-tasks {
-  // background-color: $body-dark-blue;
-  background-color: $body-blue;
   width: 100%;
   height: 100%;
   margin-top: 60px;
-  padding: 30px;
-  border-radius: 25px;
   transition: 0.3s;
 
-  // &:hover {
-  //   background-color: $input-background;
-  //   transition: 0.3s;
-  // }
-}
-
-.block-tasks__bottom {
-  margin-top: 30px;
+  &__bottom {
+    margin-top: 30px;
+  }
 }
 
 .task-item {
   display: flex;
   gap: 10px;
-  border-bottom: 2px solid $menu-background;
   cursor: pointer;
   transition: 0.2s;
+  background-color: $block-dark-blue;
+  padding: 15px;
+  position: relative;
+
+  $item: &;
+
+  &__edit.svg-icon {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    background-size: 12px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: $button-active;
+  }
+
+  &:hover {
+    transform: scale(1.005);
+
+    #{$item}__edit {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 .task-item__title {
   font-weight: 400;
-  background: $menu-background;
-  padding: 3px 15px;
   color: #fff;
 }
 
@@ -94,10 +107,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-}
-
-.task-item:hover {
-  transform: scale(1.005);
 }
 
 .block-tasks__top__title {

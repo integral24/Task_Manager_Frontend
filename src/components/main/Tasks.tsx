@@ -2,16 +2,21 @@ import { ITask } from '../../types/TasksTypes';
 
 interface IProps {
   tasks: ITask[];
+  editTask: (t: ITask) => void;
 }
 
-const Tasks: React.FC<IProps> = ({ tasks }): JSX.Element => {
+const Tasks: React.FC<IProps> = ({ tasks, editTask }): JSX.Element => {
   return (
     <>
       <div className="tasks">
-        {tasks.map(({ id, description, title }) => (
-          <div key={id} className="task-item">
-            <div className="task-item__title">{title}</div>
-            <div className="task-item__text">{description}</div>
+        {tasks.map((task) => (
+          <div key={task.id} className="task-item">
+            <div className="task-item__title">{task.title}</div>
+            <div className="task-item__text">{task.description}</div>
+            <span
+              onClick={() => editTask(task)}
+              className="task-item__edit svg-icon edit"
+            ></span>
           </div>
         ))}
       </div>

@@ -48,7 +48,6 @@ const MainPage: React.FC = (): JSX.Element => {
             size="xl"
             text="Создать"
             color="primary"
-            type="button"
             borderRadius="br1"
             className="main-button-create"
             onClick={createNewTask}

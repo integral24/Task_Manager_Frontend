@@ -7,7 +7,7 @@
 @import './common';
 
 body {
-  background-color: $body-dark-blue;
+  background-color: $body-dark;
   // padding: 0 calc(20px - (100vw - 100%)) 0 0;
   font-family: 'Fira Sans', sans-serif;
   font-size: 14px;
@@ -23,4 +23,9 @@ body {
 }
 .br-3 {
   border-radius: $br3;
+}
+
+.bg-dark-blue {
+  background-color: $block-dark-blue;
+  border-radius: $br1;
 }

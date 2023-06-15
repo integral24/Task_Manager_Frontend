@@ -6,10 +6,10 @@
   }
 
   &.primary {
-    background-color: $button-primary;
+    background-color: $color-primary;
   }
   &.secondary {
-    background-color: $button-disable;
+    background-color: $color-secondary;
   }
 
   &.sm {
@@ -25,25 +25,12 @@
     padding: 12px;
   }
 
-  &.br0 {
-    border-radius: $br0;
-  }
-  &.br1 {
-    border-radius: $br1;
-  }
-  &.br2 {
-    border-radius: $br2;
-  }
-  &.br3 {
-    border-radius: $br3;
-  }
-
   padding: 14px 20px;
   font-weight: 600;
   border-radius: 12px;
 
   &:hover {
-    background-color: $button-active;
+    background-color: $color-light-blue;
   }
 
   &:disabled {

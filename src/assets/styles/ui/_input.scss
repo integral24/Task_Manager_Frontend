@@ -7,16 +7,16 @@
   color: $input;
 
   &.sm {
-    padding: 2px;
-  }
-  &.md {
     padding: 4px;
   }
+  &.md {
+    padding: 8px 10px;
+  }
   &.lg {
-    padding: 6px;
+    padding: 14px 12px;
   }
   &.xl {
-    padding: 14px 58px 14px 60px;
+    padding: 16px 18px;
   }
 
   &::placeholder {
