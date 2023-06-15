@@ -1,25 +1,24 @@
+import {
+  IUserDataSignin,
+  IUserDataSignup,
+  IResponseSign,
+} from '@/types/authTypes';
 import http from '../../../http/http';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-interface IUserData {
-  name?: string;
-  email: string;
-  pass: string;
-}
-
 export const signUp = createAsyncThunk(
   'auth/signup',
-  async (user: IUserData) => {
+  async (user: IUserDataSignup) => {
     const { data } = await http.post('/auth/signup', user);
-    return data;
+    return data as IUserDataSignup;
   }
 );
 
 export const signIn = createAsyncThunk(
   'auth/signin',
-  async (user: IUserData) => {
+  async (user: IUserDataSignin) => {
     const { data } = await http.post('/auth/signin', user);
-    return data;
+    return data as IResponseSign;
   }
 );
 

@@ -1,10 +1,10 @@
 import http from '../../../http/http';
-import { ITask } from '../../../types/TasksTypes';
+import { ITask, ITaskCreate } from '../../../types/TasksTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const createTask = createAsyncThunk(
   'task/createTask',
-  async (task: ITask): Promise<ITask[]> => {
+  async (task: ITaskCreate): Promise<ITask[]> => {
     const { data } = await http.post('/task', task);
     return data;
   }

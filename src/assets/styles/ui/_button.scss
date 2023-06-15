@@ -2,11 +2,11 @@
   color: $text-primary;
 
   &:active {
-    transform: scale(.99);
+    transform: scale(0.99);
   }
-  
+
   &.primary {
-    background-color: $button-disable;
+    background-color: $button-primary;
   }
   &.secondary {
     background-color: $button-disable;
@@ -14,13 +14,13 @@
 
   &.sm {
     padding: 5px;
-  }  
+  }
   &.md {
     padding: 7px;
-  }  
+  }
   &.lg {
     padding: 10px;
-  }  
+  }
   &.xl {
     padding: 12px;
   }
@@ -38,4 +38,18 @@
     border-radius: $br3;
   }
 
+  padding: 14px 20px;
+  font-weight: 600;
+  border-radius: 12px;
+
+  &:hover {
+    background-color: $button-active;
+  }
+
+  &:disabled {
+    background-color: $button-disable;
+    &:hover {
+      background-color: initial;
+    }
+  }
 }

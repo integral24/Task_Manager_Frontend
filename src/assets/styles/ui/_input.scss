@@ -1,10 +1,10 @@
 .input {
-  background-color: initial;
+  background-color: $input-dark-bg;
   border-radius: $br1;
   // border: 1px solid $svg-elements-light;
-  outline: 1px solid $input;
+  // outline: 1px solid $input;
   transition: 0.1s;
-  color: #fff;
+  color: $input;
 
   &.sm {
     padding: 2px;
@@ -16,14 +16,17 @@
     padding: 6px;
   }
   &.xl {
-    padding: 8px;
+    padding: 14px 58px 14px 60px;
   }
 
   &::placeholder {
-    color: #7d7f85;
+    color: $input-placeholder;
   }
 
   &:focus {
-    outline: 1px solid lighten($input, 30%);
+    // outline: 1px solid lighten($input, 30%);
+    &::placeholder {
+      color: $input-placeholder-focus;
+    }
   }
 }

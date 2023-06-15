@@ -1,8 +1,6 @@
 import { ls } from '@/helpers';
 
-interface Itoken {
-  successToken: string | null;
-}
+type Itoken = string | null;
 
 export const KEY_STORAGE_TOKEN = 'successToken';
 
