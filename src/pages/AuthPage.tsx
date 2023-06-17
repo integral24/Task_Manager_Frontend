@@ -19,10 +19,10 @@ const Auth: React.FC = () => {
   const changeAuthType = () => {
     return typeAuth === 'Войти' ? (
       <span onClick={() => setTypeAuth('Зарегистрироваться')}>
-        Зарегистрироваться
+        Зарегистрируйтесь
       </span>
     ) : (
-      <span onClick={() => setTypeAuth('Войти')}>Войти</span>
+      <span onClick={() => setTypeAuth('Войти')}>Войдите</span>
     );
   };
 
@@ -38,7 +38,7 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="page auth-page">
       {typeAuth === 'Войти' ? (
         <Signin
           email={email}
@@ -58,9 +58,16 @@ const Auth: React.FC = () => {
           setName={setName}
         />
       )}
-
-      <Button text={typeAuth} onClick={submitAuthHandler} />
-      <div>{changeAuthType()}</div>
+      <Button
+        className="auth-page__submit"
+        text={typeAuth}
+        onClick={submitAuthHandler}
+      />
+      <div className="auth-page__change-auth">
+        {typeAuth === 'Войти' ? 'Войдите ' : 'Зарегистрируйтесь '}
+        или&nbsp;
+        {changeAuthType()}
+      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ interface IProps {
 const Signin: React.FC<IProps> = (props): JSX.Element => {
   const { email, pass, setEmail, setPass } = props;
   return (
-    <div>
+    <div className="auth-page__form">
       <Input placeholder="Введите email" value={email} onChange={setEmail} />
       <Input placeholder="Введите пароль" value={pass} onChange={setPass} />
     </div>

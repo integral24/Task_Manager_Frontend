@@ -13,9 +13,7 @@ export const createTask = createAsyncThunk(
 export const getTasks = createAsyncThunk(
   'task/getTasks',
   async (): Promise<ITask[]> => {
-    console.log('get tasks');
     const res = await http.get(`/task/`);
-    console.log(res);
     return Array.isArray(res.data) ? res.data : [];
   }
 );

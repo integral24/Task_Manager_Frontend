@@ -14,7 +14,6 @@ import apiAuth from './apiAuth';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const compareUrls = (compare: string, url: string) => {
-  console.log(url, compare, compare === url);
   return compare === url;
 };
 
@@ -33,7 +32,6 @@ export const interceptorsSetup = (
 ) => {
   instance.interceptors.request.use(
     async (config) => {
-      console.log('req');
       // if (compareUrls(EAuthLocation.refresh, config.url as string)) {
       //   console.log('req compareUrls');
       //   return config;
@@ -41,7 +39,6 @@ export const interceptorsSetup = (
       if (getToken()) {
         config.headers.Authorization = `Bearer ${getToken()}`;
       }
-      console.log('request 2');
       return config;
     },
     (error) => Promise.reject(error)
@@ -49,11 +46,9 @@ export const interceptorsSetup = (
   let flag = true;
   instance.interceptors.response.use(
     (response) => {
-      console.log('res status 200');
       return response;
     },
     async (error: AxiosError) => {
-      console.log('compareErrorToken(error)', compareErrorToken(error));
       try {
         if (compareErrorToken(error)) {
           if (getToken() && flag) {
@@ -70,11 +65,11 @@ export const interceptorsSetup = (
               });
             } catch (err) {
               /** @TODO Обрабатываем и опрокидываем ошибку в стор */
-              console.log(err);
+              // console.log(err);
             }
           } else {
             // иначе пробуем авторизоваться
-            console.log(error, 'error need autorization');
+            // console.log(error, 'error need autorization');
           }
 
           if (getToken()) {
