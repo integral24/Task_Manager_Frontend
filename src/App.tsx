@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { ReactNode, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Navigation, { IRoutes } from './components/Navigation';
 const MainPage = React.lazy(() => import('@pages/MainPage'));
 const About = React.lazy(() => import('@pages/About'));
-const Auth = React.lazy(() => import('@/pages/Auth'));
+const Auth = React.lazy(() => import('@/pages/AuthPage'));
 
 const wrapper = (component: ReactNode) => (
   <React.Suspense fallback={<>...load</>}>
@@ -12,6 +12,9 @@ const wrapper = (component: ReactNode) => (
 );
 
 const App: React.FC = () => {
+  useEffect(() => {
+    console.log('request getUser');
+  }, []);
   const menu: IRoutes['routes'] = [
     {
       to: '/',
@@ -26,6 +29,11 @@ const App: React.FC = () => {
       name: 'Войти',
     },
   ];
+
+  const navigate = useNavigate();
+  console.log(navigate);
+  // navigate('/auth');
+  console.log(process.env);
 
   return (
     <div className="app">

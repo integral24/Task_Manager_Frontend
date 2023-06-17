@@ -1,0 +1,22 @@
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 480px;
+  margin: 0 auto;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__change-auth span {
+    border-bottom: 1px solid;
+    cursor: pointer;
+  }
+
+  &__change-auth {
+    text-align: right;
+  }
+}
