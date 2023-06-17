@@ -6,10 +6,10 @@
   }
 
   &.primary {
-    background-color: $button-disable;
+    background-color: $color-primary;
   }
   &.secondary {
-    background-color: $button-disable;
+    background-color: $color-secondary;
   }
 
   &.sm {
@@ -25,24 +25,18 @@
     padding: 12px;
   }
 
-  &.br0 {
-    border-radius: $br0;
-  }
-  &.br1 {
-    border-radius: $br1;
-  }
-  &.br2 {
-    border-radius: $br2;
-  }
-  &.br3 {
-    border-radius: $br3;
-  }
-
   padding: 14px 20px;
   font-weight: 600;
   border-radius: 12px;
 
   &:hover {
-    background-image: linear-gradient(90deg, #328af1, #22c7f6);
+    background-color: $color-light-blue;
+  }
+
+  &:disabled {
+    background-color: $button-disable;
+    &:hover {
+      background-color: initial;
+    }
   }
 }

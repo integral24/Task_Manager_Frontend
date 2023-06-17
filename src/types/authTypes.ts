@@ -11,6 +11,7 @@ export interface IResponseSign {
 }
 
 export interface IUserDataSignup {
+  [x: string]: any;
   name: string;
   email: string;
   pass: string;

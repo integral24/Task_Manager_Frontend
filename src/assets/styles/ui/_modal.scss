@@ -8,6 +8,10 @@
   align-items: center;
   justify-content: center;
 
+  &.blur {
+    backdrop-filter: blur(3px);
+  }
+
   &:before {
     content: '';
     background-color: #33333328;
@@ -32,4 +36,9 @@
   &__dialog {
     max-width: 320px;
   }
+}
+
+#modal {
+  z-index: 1;
+  position: absolute;
 }

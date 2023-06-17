@@ -3,7 +3,7 @@ import Signin from '@/components/auth/Signin';
 import Signup from '@/components/auth/Signup';
 import Button from '@/components/ui/Button';
 import { useAppDispatch } from '@/hooks/redux';
-import { signUp, signIn } from '@/redux/slices/actions/actionsAuth';
+import { signIn, signUp } from '@/redux/slices/actions/actionsAuth';
 
 type ITypeAuth = 'Войти' | 'Зарегистрироваться';
 
@@ -26,29 +26,14 @@ const Auth: React.FC = () => {
     );
   };
 
-  const verification = () => {
-    if (
-      typeAuth === 'Зарегистрироваться' &&
-      name &&
-      email &&
-      pass &&
-      doublePass
-    ) {
-      if (pass === doublePass) {
-        const userData = {
-          name,
-          email,
-          pass,
-        };
+  const submitAuthHandler = () => {
+    if (email && pass) {
+      const userData = { name, email, pass };
+      if (typeAuth === 'Зарегистрироваться') {
+        if (pass !== doublePass) return ''; /* Error обработать*/
         dispatch(signUp(userData));
       }
-    }
-    if (typeAuth === 'Войти' && email && pass) {
-      const userData = {
-        email,
-        pass,
-      };
-      dispatch(signIn(userData));
+      if (typeAuth === 'Войти') dispatch(signIn(userData));
     }
   };
 
@@ -74,7 +59,7 @@ const Auth: React.FC = () => {
         />
       )}
 
-      <Button text={typeAuth} onClick={verification} />
+      <Button text={typeAuth} onClick={submitAuthHandler} />
       <div>{changeAuthType()}</div>
     </div>
   );

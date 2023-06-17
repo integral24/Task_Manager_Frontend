@@ -10,7 +10,7 @@ export const signUp = createAsyncThunk(
   'auth/signup',
   async (user: IUserDataSignup) => {
     const { data } = await http.post('/auth/signup', user);
-    return data as IResponseSign;
+    return data as IUserDataSignup;
   }
 );
 
