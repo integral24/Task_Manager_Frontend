@@ -12,7 +12,7 @@ import { store } from './redux/store';
 
 const MainPage = React.lazy(() => import('@/pages/MainPage'));
 const About = React.lazy(() => import('@/pages/About'));
-const Auth = React.lazy(() => import('@/pages/Auth'));
+const Auth = React.lazy(() => import('@/pages/AuthPage'));
 
 const wrapper = (component: ReactNode) => (
 	<React.Suspense fallback={<>...load</>}>

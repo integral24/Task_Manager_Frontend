@@ -39,6 +39,7 @@ const authSlice = createSlice({
 			state.status = Status.LOADING;
 		});
 		builder.addCase(api.signUp.fulfilled, (state, action) => {
+			console.log(action.payload);
 			if (action.payload.successToken) {
 				state.status = Status.SUCCESS;
 				setToken(action.payload.successToken);

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BlockManageTasks from '@/components/main/BlockManageTasks';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import Loader from '@/components/ui/Loader';
 
 import { createTask } from '@/redux/slices/actions/actionsTasks';
 
@@ -23,7 +24,7 @@ const MainPage: React.FC = (): JSX.Element => {
 				done: false,
 				type: 'Обычные',
 			};
-			dispatch(createTask(newTask));
+			dispatch(createTask(newTask)).then(() => setTitleValue(''));
 		}
 	};
 
@@ -59,6 +60,7 @@ const MainPage: React.FC = (): JSX.Element => {
 				<div className="main-page__buttons"></div>
 
 				<BlockManageTasks />
+				<Loader type="global" isOpen={false} />
 			</div>
 		</div>
 	);
