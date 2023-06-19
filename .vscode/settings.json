@@ -1,6 +1,6 @@
 {
-  "editor.tabSize": 2,
-  "editor.minimap.maxColumn": 220,
-  "prettier.requireConfig": true,
-  "prettier.printWidth": 500
+	"editor.tabSize": 2,
+	"editor.minimap.maxColumn": 220,
+	"prettier.requireConfig": true,
+	"prettier.printWidth": 500
 }

@@ -1,0 +1,22 @@
+module.exports = {
+	trailingComma: 'es5',
+	tabWidth: 2,
+	useTabs: true,
+	semi: true,
+	singleQuote: true,
+	importOrder: [
+		'<THIRD_PARTY_MODULES>',
+		'^@/pages/(.*)$',
+		'^@/components/(.*)$',
+		'^@/ui/(.*)$',
+		'^@/redux/(.*)$',
+		'^@/http/(.*)$',
+		'^@/helpers/(.*)$',
+		'^@/types/(.*)$',
+		'^@/(.*)$',
+		'^./(.*)',
+		'^(.scss)$',
+	],
+	importOrderSeparation: true,
+	importOrderSortSpecifiers: true,
+};
