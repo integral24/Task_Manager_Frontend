@@ -23,7 +23,7 @@ const Signup: React.FC<IProps> = (props): JSX.Element => {
 		setDoublePass,
 	} = props;
 	return (
-		<div>
+		<div className="auth-page__form">
 			<Input placeholder="Введите имя" value={name} onChange={setName} />
 			<Input placeholder="Введите email" value={email} onChange={setEmail} />
 			<Input placeholder="Введите пароль" value={pass} onChange={setPass} />
