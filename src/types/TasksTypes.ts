@@ -9,9 +9,9 @@ export interface ITask {
 }
 
 export interface ITaskCreate {
-  userId: number;
+  userId?: number;
   title: string;
-  description: string;
+  description?: string;
   done: boolean;
   type: string;
 }

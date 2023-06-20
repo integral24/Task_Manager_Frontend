@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import * as api from './actions/actionsTasks';
 
-enum Status {
+export enum Status {
 	LOADING = 'loading',
 	SUCCESS = 'success',
 	ERROR = 'error',
@@ -15,7 +15,7 @@ interface IState {
 	status: Status;
 }
 
-const initialState: IState = {
+export const initialState: IState = {
 	tasks: [],
 	oneTask: {},
 	status: Status.LOADING,
