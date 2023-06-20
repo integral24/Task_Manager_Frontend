@@ -1,11 +1,16 @@
 import { ITask } from '../../types/TasksTypes';
+import { memo } from 'react';
 
 interface IProps {
 	tasks: ITask[];
 	editTask: (t: ITask) => void;
 }
 
-const Tasks: React.FC<IProps> = ({ tasks, editTask }): JSX.Element => {
+const Tasks: React.FC<IProps> = memo(function TaskComponent({
+	tasks,
+	editTask,
+}): JSX.Element {
+	console.count('task component');
 	return (
 		<>
 			<div className="tasks">
@@ -22,6 +27,6 @@ const Tasks: React.FC<IProps> = ({ tasks, editTask }): JSX.Element => {
 			</div>
 		</>
 	);
-};
+});
 
 export default Tasks;

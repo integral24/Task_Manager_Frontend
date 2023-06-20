@@ -1,6 +1,6 @@
 import Modal from '../ui/Modal';
 import Select from '../ui/Select';
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 
 import { getTasks } from '@/redux/slices/actions/actionsTasks';
 
@@ -10,16 +10,18 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 
 import Tasks from './Tasks';
 
-const BlockManageTasks: React.FC = () => {
+const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const dispatch = useAppDispatch();
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
 	const [optionCurrentTitle, setOptionCurrentTitle] = useState('Обычные');
 	const [modalEditShow, setModalEditShow] = useState(false);
 	const [taskEdit, setTaskEdit] = useState<ITask | null>(null);
-	const editTaskHandler = (task: ITask) => {
+
+	const editTaskHandler = useCallback((task: ITask) => {
 		setModalEditShow(true);
 		setTaskEdit(task);
-	};
+	}, []);
+
 	useEffect(() => {
 		dispatch(getTasks());
 	}, []);
@@ -59,7 +61,10 @@ const BlockManageTasks: React.FC = () => {
 			</div>
 			<div className="block-tasks__bottom">
 				{tasks && tasks.length ? (
-					<Tasks editTask={editTaskHandler} tasks={tasks} />
+					<>
+						<Tasks editTask={editTaskHandler} tasks={tasks} />
+						{/* <Loader type="local" isOpen={true} /> */}
+					</>
 				) : (
 					<div>У вас нет дел</div>
 				)}
@@ -80,6 +85,6 @@ const BlockManageTasks: React.FC = () => {
 			</Modal>
 		</div>
 	);
-};
+});
 
 export default BlockManageTasks;

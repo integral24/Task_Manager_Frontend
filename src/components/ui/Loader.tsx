@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import { useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Ripple } from 'react-spinners-css';
 import { CSSTransition } from 'react-transition-group';
 
 interface IProps {
@@ -17,7 +16,7 @@ const Loader: React.FC<IProps> = (props): JSX.Element => {
 
 	const transitionComponent = (loader: JSX.Element) => (
 		<CSSTransition
-			classNames="rtg-ft"
+			classNames="list"
 			unmountOnExit
 			nodeRef={nodeRef}
 			in={isOpen}
@@ -26,7 +25,7 @@ const Loader: React.FC<IProps> = (props): JSX.Element => {
 			<div
 				ref={nodeRef}
 				className={cn({
-					modal: true,
+					loader: true,
 					blur: blur,
 				})}
 			>
@@ -37,14 +36,17 @@ const Loader: React.FC<IProps> = (props): JSX.Element => {
 
 	const globalLodaer = () =>
 		loaderPortal &&
-		createPortal(transitionComponent(<Ripple color="red" />), loaderPortal);
+		createPortal(
+			transitionComponent(<span className="loader"></span>),
+			loaderPortal
+		);
 
 	return (
 		<>
 			{' '}
 			{type === 'global'
 				? globalLodaer()
-				: transitionComponent(<Ripple color="red" />)}
+				: transitionComponent(<span className="loader"></span>)}
 			{}
 		</>
 	);

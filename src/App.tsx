@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import Navigation from '@/components/Navigation';
 
@@ -22,11 +22,14 @@ const wrapper = (component: ReactNode) => (
 
 const App: React.FC = () => {
 	const navigate = useNavigate();
+
+	const location = useLocation();
+
 	interceptorsSetup(http, store.getState(), navigate);
 	return (
 		<div className="app">
 			<Navigation routes={menu} />
-			<Routes>
+			<Routes location={location}>
 				<Route index path="/" element={wrapper(<MainPage />)} />
 				<Route path="/about" element={wrapper(<About />)} />
 				<Route path="/auth" element={wrapper(<Auth />)} />
