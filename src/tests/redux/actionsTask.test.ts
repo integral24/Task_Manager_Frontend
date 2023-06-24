@@ -19,9 +19,14 @@ const task: ITask = {
 };
 
 describe('actions test', () => {
-	it('task actions tests', () => {
+	it('get task pending', () => {
 		const state = taskSlice(initialState, getTasks.pending);
 		expect(state.status).toBe(Status.LOADING);
+	});
+
+	it('get task rejected', () => {
+		const state = taskSlice(initialState, getTasks.rejected);
+		expect(state.status).toBe(Status.ERROR);
 	});
 });
 
