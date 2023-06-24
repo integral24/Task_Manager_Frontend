@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+// import { useSelector } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import Navigation from '@/components/Navigation';
@@ -7,12 +8,14 @@ import http from '@/http/http';
 
 import { menu } from '@/helpers';
 
+// import Loader from './components/ui/Loader';
+// import { useAppSelector } from './hooks/redux';
 import { interceptorsSetup } from './http/interceptorsSetup';
 import { store } from './redux/store';
 
-const MainPage = React.lazy(() => import('@/pages/MainPage'));
-const About = React.lazy(() => import('@/pages/About'));
-const Auth = React.lazy(() => import('@/pages/AuthPage'));
+const MainPage = React.lazy(async () => import('@/pages/MainPage'));
+const About = React.lazy(async () => import('@/pages/About'));
+const Auth = React.lazy(async () => import('@/pages/AuthPage'));
 
 const wrapper = (component: ReactNode) => (
 	<React.Suspense fallback={<>...load</>}>
@@ -23,18 +26,26 @@ const wrapper = (component: ReactNode) => (
 const App: React.FC = () => {
 	const navigate = useNavigate();
 
+	// const status = useAppSelector((store) => store.commonSlice.status);
+	// const [statusLocal, setstatusLocal] = useState(true);
+
+	// setTimeout(() => setstatusLocal(false), 2000);
+
 	const location = useLocation();
 
-	interceptorsSetup(http, store.getState(), navigate);
+	interceptorsSetup(http, store, navigate);
 	return (
-		<div className="app">
-			<Navigation routes={menu} />
-			<Routes location={location}>
-				<Route index path="/" element={wrapper(<MainPage />)} />
-				<Route path="/about" element={wrapper(<About />)} />
-				<Route path="/auth" element={wrapper(<Auth />)} />
-			</Routes>
-		</div>
+		<>
+			<div className="app">
+				<Navigation routes={menu} />
+				<Routes location={location}>
+					<Route index path="/" element={wrapper(<MainPage />)} />
+					<Route path="/about" element={wrapper(<About />)} />
+					<Route path="/auth" element={wrapper(<Auth />)} />
+				</Routes>
+			</div>
+			{/* <Loader type="global" isOpen={statusLocal} />; */}
+		</>
 	);
 };
 

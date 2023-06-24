@@ -37,7 +37,11 @@ const Loader: React.FC<IProps> = (props): JSX.Element => {
 	const globalLodaer = () =>
 		loaderPortal &&
 		createPortal(
-			transitionComponent(<span className="loader"></span>),
+			transitionComponent(
+				<div className="global-loader-wrapper">
+					<span className="loader"></span>
+				</div>
+			),
 			loaderPortal
 		);
 

@@ -1,3 +1,4 @@
+import Loader from '../ui/Loader';
 import Modal from '../ui/Modal';
 import Select from '../ui/Select';
 import { memo, useCallback, useEffect, useState } from 'react';
@@ -8,11 +9,14 @@ import { ITask } from '@/types/TasksTypes';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 
+import CreateUpdateTask from './CreateUpdateTask';
 import Tasks from './Tasks';
 
 const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const dispatch = useAppDispatch();
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
+	const status = useAppSelector((state) => state.taskSlice.status);
+
 	const [optionCurrentTitle, setOptionCurrentTitle] = useState('Обычные');
 	const [modalEditShow, setModalEditShow] = useState(false);
 	const [taskEdit, setTaskEdit] = useState<ITask | null>(null);
@@ -63,7 +67,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				{tasks && tasks.length ? (
 					<>
 						<Tasks editTask={editTaskHandler} tasks={tasks} />
-						{/* <Loader type="local" isOpen={true} /> */}
+						<Loader type="local" isOpen={status === 'loading'} />
 					</>
 				) : (
 					<div>У вас нет дел</div>
@@ -75,13 +79,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				isOpen={modalEditShow}
 				blur={true}
 			>
-				<div className="edit-modal">
-					<div className="edit-modal__title-modal">{taskEdit?.title}</div>
-					<div className="edit-modal__title-task">{taskEdit?.title}</div>
-					<div className="edit-modal__description-task">
-						{taskEdit?.description}
-					</div>
-				</div>
+				<CreateUpdateTask type="update" taskUpdate={taskEdit} />
 			</Modal>
 		</div>
 	);

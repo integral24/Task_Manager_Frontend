@@ -1,5 +1,6 @@
 // import http from '@/http/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import axios, {
 	AxiosError,
 	AxiosInstance,
@@ -7,7 +8,7 @@ import axios, {
 	CanceledError,
 } from 'axios';
 
-import { RootState } from '@/redux/store';
+import commonSlice, { TStatus } from '@/redux/slices/commonSlice';
 
 import { getToken, setToken } from '@/http/tokenService';
 
@@ -32,14 +33,20 @@ const compareErrorToken = (error: AxiosError): boolean => {
 	);
 };
 
+let setSetLoadStatus = false;
+
 export const interceptorsSetup = (
 	instance: AxiosInstance,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	store: RootState,
+	store: ToolkitStore,
 	navigate: (url: string) => any
 ) => {
 	instance.interceptors.request.use(
 		async (config) => {
+			if (!setSetLoadStatus)
+				store.dispatch(commonSlice.actions.setLoading('loading' as TStatus));
+			setSetLoadStatus = true;
+
 			// if (compareUrls(EAuthLocation.refresh, config.url as string)) {
 			//   console.log('req compareUrls');
 			//   return config;
@@ -54,6 +61,9 @@ export const interceptorsSetup = (
 	let flag = true;
 	instance.interceptors.response.use(
 		(response) => {
+			if (setSetLoadStatus)
+				store.dispatch(commonSlice.actions.setLoading('pending' as TStatus));
+			setSetLoadStatus = false;
 			return response;
 		},
 		async (error: AxiosError) => {
@@ -67,8 +77,6 @@ export const interceptorsSetup = (
 								password: '12345',
 							});
 
-							console.log('get tokens refresh', res);
-
 							if (res?.successToken /* если в ответе есть новый токен */) {
 								setToken(res.successToken);
 								instance.defaults.headers.common.Authorization =
@@ -77,7 +85,6 @@ export const interceptorsSetup = (
 									...error.config,
 								});
 							} /* если в ответе нет токена */ else {
-								console.log('not success token', res);
 								return navigate('/auth');
 							}
 						} catch (err) {
@@ -92,6 +99,9 @@ export const interceptorsSetup = (
 						getToken() || ''
 					);
 					return await axios(error.config as AxiosRequestConfig);
+				} else if (error.response?.status === 403) {
+					console.log(error.response?.status);
+					return navigate('/auth');
 				}
 			} catch (err) {
 				// обработать ошибки

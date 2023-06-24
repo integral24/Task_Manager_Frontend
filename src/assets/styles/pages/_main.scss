@@ -128,3 +128,11 @@
 	align-items: center;
 	gap: 10px;
 }
+
+.edit-modal {
+
+	& > input {
+		width: 100%;
+		background-color: inherit;
+	}
+}

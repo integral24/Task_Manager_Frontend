@@ -16,6 +16,7 @@
 		top: 0;
 		box-sizing: border-box;
 		animation: animloader 2s ease-in-out infinite;
+		opacity: 0;
 	}
 	&::after {
 		animation-delay: 1s;
@@ -32,4 +33,19 @@
 			opacity: 0;
 		}
 	}
+}
+
+.global-loader-wrapper {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: #10151e8f;
+	z-index: 3;
+	backdrop-filter: blur(10px);
+	opacity: 1;
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import BlockManageTasks from '@/components/main/BlockManageTasks';
+import BlockManageTasks from '@/components/main/ManageTasks';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Loader from '@/components/ui/Loader';

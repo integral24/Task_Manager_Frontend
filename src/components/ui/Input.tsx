@@ -8,7 +8,9 @@ interface IProps {
 	disabled?: boolean;
 	value: string;
 	id?: string;
-	onChange: React.Dispatch<React.SetStateAction<string>>;
+	onChange:
+		| React.Dispatch<React.SetStateAction<string>>
+		| ((p: string) => void);
 	onInput?: () => void;
 	onFocus?: () => void;
 }

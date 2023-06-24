@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// import { RootState, store } from '@/redux/store';
 import { setToken } from '@/http/tokenService';
 
 import * as api from './actions/actionsAuth';
+import commonSlice from './commonSlice';
 
 enum Status {
 	LOADING = 'loading',
@@ -48,6 +50,7 @@ const authSlice = createSlice({
 				state.user.name = name;
 				state.user.email = email;
 				state.message = action.payload.message ?? '';
+				console.log(commonSlice);
 			} else {
 				state.status = Status.ERROR;
 				console.log(action.payload);
