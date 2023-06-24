@@ -1,5 +1,5 @@
 import Input from '../ui/Input';
-import { memo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 import { ITask } from '@/types/TasksTypes';
 
@@ -18,6 +18,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(({ type, taskUpdate }) => {
 	return (
 		<div className="edit-modal">
 			<Input
+				focus
 				onChange={taskDataHAndler}
 				value={task?.title || ''}
 				className="edit-modal__title-modal"
