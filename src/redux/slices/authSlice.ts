@@ -82,6 +82,22 @@ const authSlice = createSlice({
 			state.status = Status.ERROR;
 			console.log(action.payload);
 		});
+
+		builder.addCase(api.getUser.pending, (state) => {
+			state.status = Status.LOADING;
+		});
+		builder.addCase(api.getUser.fulfilled, (state, action) => {
+			state.status = Status.SUCCESS;
+			const { id, name, email } = action.payload.user;
+			// console.log('user', action.payload);
+			state.user.id = id;
+			state.user.name = name;
+			state.user.email = email;
+		});
+		builder.addCase(api.getUser.rejected, (state, action) => {
+			state.status = Status.ERROR;
+			console.log(action.payload);
+		});
 	},
 });
 
