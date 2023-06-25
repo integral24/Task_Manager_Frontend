@@ -1,4 +1,4 @@
-import { ls } from '@/helpers';
+import { ls } from '@/utils';
 
 type Itoken = string | null;
 

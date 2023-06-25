@@ -31,7 +31,7 @@ export const getTask = createAsyncThunk(
 export const updateTask = createAsyncThunk(
 	'task/updateTask',
 	async (task: ITask): Promise<ITask[]> => {
-		const { data } = await http.put('/task', task);
+		const { data } = await http.put('/task/' + task.id, task);
 		return data;
 	}
 );

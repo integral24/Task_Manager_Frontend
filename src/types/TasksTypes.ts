@@ -4,9 +4,11 @@ export interface ITask {
 	title: string;
 	description: string;
 	done: boolean;
-	createDate: string;
-	type: 'Срочные' | 'Важные' | 'Обычные';
+	createDate?: string;
+	type: typeOptions;
 }
+
+export type typeOptions = 'Срочные' | 'Важные' | 'Обычные';
 
 export interface ITaskCreate {
 	userId: number;

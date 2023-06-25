@@ -2,9 +2,10 @@ import cn from 'classnames';
 import React, { useEffect, useRef } from 'react';
 
 interface IProps {
+	autocomplete?: boolean;
 	label?: string;
 	focus?: boolean;
-	size?: 'sm' | 'md' | 'lg' | 'xl';
+	size?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 	placeholder: string;
 	className?: string;
 	disabled?: boolean;
@@ -19,6 +20,7 @@ interface IProps {
 
 const Input: React.FC<IProps> = (props): JSX.Element => {
 	const {
+		autocomplete = false,
 		size,
 		placeholder,
 		className,
@@ -47,6 +49,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 		<>
 			<label>{label}</label>
 			<input
+				autoComplete={autocomplete ? '' : 'off'}
 				ref={refInput}
 				className={cn({
 					input: true,

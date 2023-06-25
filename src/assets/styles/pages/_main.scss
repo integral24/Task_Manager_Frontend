@@ -107,8 +107,9 @@
 	flex-direction: column;
 	gap: 18px;
 	height: 100%;
-	padding-right: 20px;
+	padding: 20px 20px 0 0;
 	overflow-y: auto;
+	overflow-x: hidden;
 	max-height: 500px;
 }
 
@@ -130,9 +131,50 @@
 }
 
 .edit-modal {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
 
-	& > input {
-		width: 100%;
-		background-color: inherit;
+	&__wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+
+		& > label {
+			font-size: 20px;
+			font-weight: 500;
+			display: inline-block;
+			padding: 0 10px;
+		}
+
+		& > input,
+		textarea {
+			width: 100%;
+			background-color: inherit;
+			font-size: 16px;
+
+			&:focus {
+				outline: 1px solid #ffffff3b;
+			}
+		}
+
+		& textarea {
+			overflow-y: auto;
+			resize: vertical;
+			padding: 10px;
+			border-radius: $br1;
+		}
+	}
+	&__buttons {
+		display: flex;
+		justify-content: right;
+		gap: 20px;
+		padding-top: 30px;
+	}
+	&__category {
+		display: flex;
+		align-items: center;
+		justify-content: right;
+		gap: 10px;
 	}
 }

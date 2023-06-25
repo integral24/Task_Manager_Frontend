@@ -6,6 +6,14 @@
 @import './pages/index';
 @import './common';
 
+body, textarea {
+  background-color: initial;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: $text-primary;
+}
+
 body {
   background-color: $body-dark;
   // padding: 0 calc(20px - (100vw - 100%)) 0 0;

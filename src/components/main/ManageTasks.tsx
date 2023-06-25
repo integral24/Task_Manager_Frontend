@@ -5,9 +5,10 @@ import { memo, useCallback, useEffect, useState } from 'react';
 
 import { getTasks } from '@/redux/slices/actions/actionsTasks';
 
-import { ITask } from '@/types/TasksTypes';
+import { ITask, typeOptions } from '@/types/TasksTypes';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { optionItem } from '@/utils/constants';
 
 import CreateUpdateTask from './CreateUpdateTask';
 import Tasks from './Tasks';
@@ -17,7 +18,8 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
 	const status = useAppSelector((state) => state.taskSlice.status);
 
-	const [optionCurrentTitle, setOptionCurrentTitle] = useState('Обычные');
+	const [optionCurrentTitle, setOptionCurrentTitle] =
+		useState<typeOptions>('Обычные');
 	const [modalEditShow, setModalEditShow] = useState(false);
 	const [taskEdit, setTaskEdit] = useState<ITask | null>(null);
 
@@ -36,20 +38,6 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 		}
 	}, [modalEditShow]);
 
-	const optionItem = [
-		{
-			title: 'Срочные',
-			icon: 'fire',
-		},
-		{
-			title: 'Важные',
-			icon: 'infocircle',
-		},
-		{
-			title: 'Обычные',
-			icon: 'note',
-		},
-	];
 	return (
 		<div className="block-tasks">
 			<div className="block-tasks__top">
@@ -79,7 +67,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				isOpen={modalEditShow}
 				blur={true}
 			>
-				<CreateUpdateTask type="update" taskUpdate={taskEdit} />
+				<CreateUpdateTask mode="update" original={taskEdit} />
 			</Modal>
 		</div>
 	);

@@ -3,11 +3,15 @@ import React, { useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useOnClickOutside } from 'usehooks-ts';
 
+import { typeOptions } from '@/types/TasksTypes';
+
 interface IProps {
-	options: { title: string; icon: string }[];
+	options: { title: typeOptions; icon: string }[];
 	className?: string;
-	setOptionCurrentTitle: React.Dispatch<React.SetStateAction<string>>;
-	optionCurrentTitle: string;
+	setOptionCurrentTitle:
+		| React.Dispatch<React.SetStateAction<typeOptions>>
+		| ((value: typeOptions) => void);
+	optionCurrentTitle: typeOptions;
 }
 
 const Select: React.FC<IProps> = (props): JSX.Element => {
@@ -47,7 +51,13 @@ const Select: React.FC<IProps> = (props): JSX.Element => {
 			>
 				<div className="select__options" ref={nodeRef}>
 					{options.map(({ title, icon }) => (
-						<div key={title} onClick={() => setOptionCurrentTitle(title)}>
+						<div
+							key={title}
+							onClick={() => {
+								setIsOpen(false);
+								setOptionCurrentTitle(title);
+							}}
+						>
 							{icon && (
 								<span
 									className={cn({

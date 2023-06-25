@@ -6,7 +6,7 @@ import Navigation from '@/components/Navigation';
 
 import http from '@/http/http';
 
-import { menu } from '@/helpers';
+import { menu } from '@/utils';
 
 import { useAppDispatch } from './hooks/redux';
 // import Loader from './components/ui/Loader';
