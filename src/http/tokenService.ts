@@ -2,7 +2,7 @@ import { ls } from '@/utils';
 
 type Itoken = string | null;
 
-export const KEY_STORAGE_TOKEN = 'successToken';
+export const KEY_STORAGE_TOKEN = 'accessToken';
 
 export const setToken = (token: Itoken) => {
 	ls.set(KEY_STORAGE_TOKEN, token);
