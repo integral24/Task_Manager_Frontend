@@ -78,7 +78,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 		return (
 			<div className="edit-modal">
 				<div className="edit-modal__category">
-					Категории:
+					Категория:
 					<Select
 						options={optionItem}
 						setOptionCurrentTitle={setOptionCurrentTitle}

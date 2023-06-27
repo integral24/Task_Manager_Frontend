@@ -43,7 +43,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 			<div className="block-tasks__top">
 				<div className="block-tasks__top__title">Ваши задачи</div>
 				<div className="block-tasks__top__sort">
-					Категории:
+					Сортировка:
 					<Select
 						options={optionItem}
 						setOptionCurrentTitle={setOptionCurrentTitle}
