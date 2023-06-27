@@ -1,0 +1,22 @@
+.textarea {
+  background-color: $input-dark-bg;
+  transition: 0.1s;
+  color: $input;
+  overflow-y: auto;
+  resize: vertical;
+  padding: 10px;
+  border-radius: $br1;
+  width: 100%;
+  font-size: 16px;
+
+  &::placeholder {
+    color: $input-placeholder;
+  }
+
+  &:focus {
+    outline: 1px solid $outline-focus;
+    &::placeholder {
+      color: $input-placeholder-focus;
+    }
+  }
+}

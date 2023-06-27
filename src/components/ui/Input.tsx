@@ -47,7 +47,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 
 	return (
 		<>
-			<label>{label}</label>
+			<label>{label ? label : ''}</label>
 			<input
 				autoComplete={autocomplete ? '' : 'off'}
 				ref={refInput}

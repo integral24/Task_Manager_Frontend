@@ -10,7 +10,7 @@ const Tasks: React.FC<IProps> = memo(function TaskComponent({
 	tasks,
 	editTask,
 }): JSX.Element {
-	console.count('task component');
+	console.log(tasks);
 	return (
 		<>
 			<div className="tasks">

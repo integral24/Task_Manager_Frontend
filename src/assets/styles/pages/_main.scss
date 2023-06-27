@@ -2,11 +2,18 @@
 	&__top-block {
 		display: flex;
 		gap: 14px;
-		align-items: center;
 	}
 
+  &__main-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: end;
+    flex: 1 1;
+  }
+
 	&__main-input-wrap {
-		flex: 1 1;
+		width: 100%;
 		position: relative;
 
 		.main-input-label {
@@ -147,22 +154,14 @@
 			padding: 0 10px;
 		}
 
-		& > input,
-		textarea {
+		& > input {
 			width: 100%;
 			background-color: inherit;
 			font-size: 16px;
 
 			&:focus {
-				outline: 1px solid #ffffff3b;
+				outline: 1px solid $outline-focus;
 			}
-		}
-
-		& textarea {
-			overflow-y: auto;
-			resize: vertical;
-			padding: 10px;
-			border-radius: $br1;
 		}
 	}
 	&__buttons {
@@ -177,4 +176,13 @@
 		justify-content: right;
 		gap: 10px;
 	}
+}
+
+.open-editor {
+  text-align: right;
+  cursor: pointer;
+  
+  span {
+    border-bottom: 1px solid;
+  }
 }

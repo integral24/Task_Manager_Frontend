@@ -1,14 +1,16 @@
 .auth-page {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  align-items: end;
+  gap: 30px;
   max-width: 480px;
   margin: 0 auto;
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
+    width: 100%;
   }
 
   &__change-auth span {
@@ -18,5 +20,9 @@
 
   &__change-auth {
     text-align: right;
+  }
+
+  &__submit {
+    width: max-content;
   }
 }

@@ -33,6 +33,5 @@ export const getUser = createAsyncThunk('auth/getUser', async () => {
 	const { data } = (await http.post('/auth/getuser')) as {
 		data: { user: IUser };
 	};
-	console.log('data', data);
 	return data;
 });

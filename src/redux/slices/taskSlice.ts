@@ -65,13 +65,15 @@ const taskSlice = createSlice({
 			state.status = Status.loading;
 		});
 		builder.addCase(api.updateTask.fulfilled, (state, action) => {
-			if ('id' in action.payload[0]) {
-				state.status = Status.success;
-				state.tasks.map((el, idx) => {
-					if (el.id === action.payload[0].id) {
-						state.tasks[idx] = action.payload[0];
-					}
-				});
+			if (action.payload[0]) {
+				if ('id' in action.payload[0]) {
+					state.status = Status.success;
+					state.tasks.map((el, idx) => {
+						if (el.id === action.payload[0].id) {
+							state.tasks[idx] = action.payload[0];
+						}
+					});
+				} else state.status = Status.error;
 			} else state.status = Status.error;
 		});
 		builder.addCase(api.updateTask.rejected, (state) => {

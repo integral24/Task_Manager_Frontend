@@ -58,7 +58,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 						<Loader type="local" isOpen={status === 'loading'} />
 					</>
 				) : (
-					<div>У вас нет дел</div>
+					<div>Все сделано!</div>
 				)}
 			</div>
 			<Modal
@@ -67,7 +67,11 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				isOpen={modalEditShow}
 				blur={true}
 			>
-				<CreateUpdateTask mode="update" original={taskEdit} />
+				<CreateUpdateTask
+					mode="update"
+					original={taskEdit}
+					close={() => setModalEditShow(false)}
+				/>
 			</Modal>
 		</div>
 	);
