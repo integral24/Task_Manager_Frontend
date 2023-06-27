@@ -5,7 +5,7 @@ interface IProps {
 	size?: 'sm' | 'md' | 'lg' | 'xl';
 	text: string;
 	className?: string;
-	color?: 'primary' | 'secondary';
+	color?: 'primary' | 'secondary' | 'warning' | 'agree';
 	disabled?: boolean;
 	onClick?: () => void;
 	type?: 'button' | 'submit' | 'reset';

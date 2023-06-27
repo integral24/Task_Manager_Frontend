@@ -71,6 +71,7 @@
 
 .task-item {
 	display: flex;
+	flex-direction: column;
 	gap: 10px;
 	cursor: pointer;
 	transition: 0.2s;
@@ -101,11 +102,19 @@
 			visibility: visible;
 		}
 	}
-}
 
-.task-item__title {
-	font-weight: 400;
-	color: #fff;
+	&__text {
+		max-height: 40px;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+	}
+
+	&__title {
+		font-weight: 400;
+		color: #fff;
+	}
 }
 
 .tasks {
@@ -114,7 +123,7 @@
 	flex-direction: column;
 	gap: 18px;
 	height: 100%;
-	padding: 20px 20px 0 0;
+	padding: 20px 20px 20px 0;
 	overflow-y: auto;
 	overflow-x: hidden;
 	max-height: 500px;
@@ -162,6 +171,13 @@
 			&:focus {
 				outline: 1px solid $outline-focus;
 			}
+		}
+
+		& textarea {
+			overflow-y: auto;
+			resize: none;
+			padding: 10px;
+			border-radius: $br1;
 		}
 	}
 	&__buttons {

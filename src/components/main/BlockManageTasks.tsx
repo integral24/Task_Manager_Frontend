@@ -55,7 +55,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				{tasks && tasks.length ? (
 					<>
 						<Tasks editTask={editTaskHandler} tasks={tasks} />
-						<Loader type="local" isOpen={status === 'loading'} />
+						{/* <Loader type="local" isOpen={status === 'loading'} /> */}
 					</>
 				) : (
 					<div>Все сделано!</div>
