@@ -16,7 +16,7 @@ interface IProps {
 	original?: ITask | null;
 	currentTitle?: string;
 	close: () => void;
-	setTitleValue?: any;
+	setTitleValue?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const CreateUpdateTask: React.FC<IProps> = memo(
@@ -42,7 +42,9 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 						done: false,
 						type,
 					};
-					dispatch(createTask(newTask)).then(() => setTitleValue(''));
+					dispatch(createTask(newTask)).then(
+						() => setTitleValue && setTitleValue('')
+					);
 					close();
 				}
 			} else if (original && title.trim()) {
@@ -59,7 +61,10 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 		};
 
 		const cancelEditHandler = () => {
-			setTitleValue('');
+			if (setTitleValue) {
+				setTitleValue('');
+			}
+
 			close();
 		};
 

@@ -1,4 +1,4 @@
-import Loader from '../ui/Loader';
+// import Loader from '../ui/Loader';
 import Modal from '../ui/Modal';
 import Select from '../ui/Select';
 import { memo, useCallback, useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ import Tasks from './Tasks';
 const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const dispatch = useAppDispatch();
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
-	const status = useAppSelector((state) => state.taskSlice.status);
+	// const status = useAppSelector((state) => state.taskSlice.status);
 
 	const [optionCurrentTitle, setOptionCurrentTitle] =
 		useState<typeOptions>('Обычные');
