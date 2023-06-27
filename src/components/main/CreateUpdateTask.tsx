@@ -8,7 +8,7 @@ import taskSlice from '@/redux/slices/taskSlice';
 
 import { ITask, typeOptions } from '@/types/TasksTypes';
 
-import { useAppDispatch } from '@/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { optionItem } from '@/utils/constants';
 
 interface IProps {
@@ -18,6 +18,9 @@ interface IProps {
 
 const CreateUpdateTask: React.FC<IProps> = memo(({ mode, original }) => {
 	const dispatch = useAppDispatch();
+	const status = useAppSelector((store) => store.taskSlice.status);
+
+	console.log(status);
 	// const [originalTask] = useState<ITask | null>(original || null);
 	//
 	const [title, setTitle] = useState<string>(original?.title || '');
@@ -84,7 +87,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(({ mode, original }) => {
 					onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
 						setDescription(e.target.value)
 					}
-					rows={5}
+					rows={8}
 					value={description || ''}
 				/>
 			</div>
