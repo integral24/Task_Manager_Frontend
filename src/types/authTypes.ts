@@ -5,7 +5,7 @@ export interface IUser {
 }
 
 export interface IResponseSign {
-	successToken: string;
+	accessToken: string;
 	user: IUser;
 	message?: string;
 }

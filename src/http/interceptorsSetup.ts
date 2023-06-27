@@ -77,8 +77,8 @@ export const interceptorsSetup = (
 								password: '12345',
 							});
 
-							if (res?.successToken /* если в ответе есть новый токен */) {
-								setToken(res.successToken);
+							if (res?.accessToken /* если в ответе есть новый токен */) {
+								setToken(res.accessToken);
 								instance.defaults.headers.common.Authorization =
 									'Bearer '.concat(getToken() || '');
 								return await instance({

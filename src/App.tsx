@@ -16,7 +16,7 @@ import { getUser } from './redux/slices/actions/actionsAuth';
 import { store } from './redux/store';
 
 const MainPage = React.lazy(async () => import('@/pages/MainPage'));
-const About = React.lazy(async () => import('@/pages/About'));
+const Timer = React.lazy(async () => import('@/pages/Timer'));
 const Auth = React.lazy(async () => import('@/pages/AuthPage'));
 
 const wrapper = (component: ReactNode) => (
@@ -46,7 +46,7 @@ const App: React.FC = () => {
 				<Navigation routes={menu} />
 				<Routes location={location}>
 					<Route index path="/" element={wrapper(<MainPage />)} />
-					<Route path="/about" element={wrapper(<About />)} />
+					<Route path="/timer" element={wrapper(<Timer />)} />
 					<Route path="/auth" element={wrapper(<Auth />)} />
 				</Routes>
 			</div>

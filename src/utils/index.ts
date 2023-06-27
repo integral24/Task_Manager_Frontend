@@ -26,8 +26,8 @@ export const menu: IRoutes['routes'] = [
 		name: 'Главная',
 	},
 	{
-		to: '/about',
-		name: 'О нас',
+		to: '/timer',
+		name: 'Таймер',
 	},
 	{
 		to: '/auth',

@@ -23,7 +23,6 @@ const commonSlice = createSlice({
 	initialState,
 	reducers: {
 		setLoading: (state, action: PayloadAction<TStatus>) => {
-			console.log(action);
 			state.status = action.payload;
 		},
 	},

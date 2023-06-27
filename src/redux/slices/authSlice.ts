@@ -42,9 +42,9 @@ const authSlice = createSlice({
 		});
 		builder.addCase(api.signUp.fulfilled, (state, action) => {
 			console.log(action.payload);
-			if (action.payload.successToken) {
+			if (action.payload.accessToken) {
 				state.status = Status.SUCCESS;
-				setToken(action.payload.successToken);
+				setToken(action.payload.accessToken);
 				const { id, name, email } = action.payload.user;
 				state.user.id = id;
 				state.user.name = name;
@@ -65,9 +65,9 @@ const authSlice = createSlice({
 			state.status = Status.LOADING;
 		});
 		builder.addCase(api.signIn.fulfilled, (state, action) => {
-			if (action.payload.successToken) {
+			if (action.payload.accessToken) {
 				state.status = Status.SUCCESS;
-				setToken(action.payload.successToken);
+				setToken(action.payload.accessToken);
 				const { id, name, email } = action.payload.user;
 				state.user.id = id;
 				state.user.name = name;

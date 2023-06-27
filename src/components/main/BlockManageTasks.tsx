@@ -1,4 +1,4 @@
-import Loader from '../ui/Loader';
+// import Loader from '../ui/Loader';
 import Modal from '../ui/Modal';
 import Select from '../ui/Select';
 import { memo, useCallback, useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ import Tasks from './Tasks';
 const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const dispatch = useAppDispatch();
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
-	const status = useAppSelector((state) => state.taskSlice.status);
+	// const status = useAppSelector((state) => state.taskSlice.status);
 
 	const [optionCurrentTitle, setOptionCurrentTitle] =
 		useState<typeOptions>('Обычные');
@@ -43,7 +43,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 			<div className="block-tasks__top">
 				<div className="block-tasks__top__title">Ваши задачи</div>
 				<div className="block-tasks__top__sort">
-					Категории:
+					Сортировка:
 					<Select
 						options={optionItem}
 						setOptionCurrentTitle={setOptionCurrentTitle}
@@ -58,7 +58,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 						{/* <Loader type="local" isOpen={status === 'loading'} /> */}
 					</>
 				) : (
-					<div>У вас нет дел</div>
+					<div>Все сделано!</div>
 				)}
 			</div>
 			<Modal
@@ -67,7 +67,11 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				isOpen={modalEditShow}
 				blur={true}
 			>
-				<CreateUpdateTask mode="update" original={taskEdit} />
+				<CreateUpdateTask
+					mode="update"
+					original={taskEdit}
+					close={() => setModalEditShow(false)}
+				/>
 			</Modal>
 		</div>
 	);
