@@ -61,10 +61,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 		};
 
 		const cancelEditHandler = () => {
-			if (setTitleValue) {
-				setTitleValue('');
-			}
-
+			if (setTitleValue) setTitleValue('');
 			close();
 		};
 

@@ -1,16 +1,37 @@
+import { IRoutes } from '@/components/Navigation';
+
 import { typeOptions } from '@/types/TasksTypes';
 
-export const optionItem: { title: typeOptions; icon: string }[] = [
+export const optionItem: { title: typeOptions; icon: string; color: string }[] =
+	[
+		{
+			title: 'Срочные',
+			icon: 'fire',
+			color: 'red',
+		},
+		{
+			title: 'Важные',
+			icon: 'infocircle',
+			color: 'green',
+		},
+		{
+			title: 'Обычные',
+			icon: 'note',
+			color: 'blue',
+		},
+	];
+
+export const menu: IRoutes['routes'] = [
 	{
-		title: 'Срочные',
-		icon: 'fire',
+		to: '/',
+		name: 'Главная',
 	},
 	{
-		title: 'Важные',
-		icon: 'infocircle',
+		to: '/timer',
+		name: 'Таймер',
 	},
 	{
-		title: 'Обычные',
-		icon: 'note',
+		to: '/auth',
+		name: 'Войти',
 	},
 ];

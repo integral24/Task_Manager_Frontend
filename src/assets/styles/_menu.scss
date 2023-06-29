@@ -1,0 +1,16 @@
+nav.top-menu {
+	background-color: #111a2a;
+}
+.menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__items {
+		display: flex;
+		gap: 10px;
+		padding: 15px 0;
+		justify-content: flex-end;
+		align-items: center;
+	}
+}

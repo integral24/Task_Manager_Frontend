@@ -1,16 +1,17 @@
 .main-page {
+	margin-top: 60px;
 	&__top-block {
 		display: flex;
 		gap: 14px;
 	}
 
-  &__main-input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-end;
-    flex: 1 1;
-  }
+	&__main-input-container {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		align-items: flex-end;
+		flex: 1 1;
+	}
 
 	&__main-input-wrap {
 		width: 100%;
@@ -114,6 +115,28 @@
 	&__title {
 		font-weight: 400;
 		color: #fff;
+		display: flex;
+		align-items: center;
+		gap:8px;
+
+		& > .svg-icon {
+			background-color: #304f9c;
+			padding: 3px;
+			width: 22px;
+			height: 22px;
+			background-size: 14px;
+			border-radius: 30px;
+
+			&.red {
+				background-color: $color-red;
+			}
+			&.green {
+				background-color: $green;
+			}
+			&.blue {
+				background-color: #304f9c;
+			}
+	}
 	}
 }
 
@@ -165,19 +188,16 @@
 
 		& > input {
 			width: 100%;
-			background-color: inherit;
+			background-color: #172843;
 			font-size: 16px;
 
-			&:focus {
-				outline: 1px solid $outline-focus;
-			}
 		}
 
 		& textarea {
+			background-color: #172843;
 			overflow-y: auto;
 			resize: none;
 			padding: 10px;
-			border-radius: $br1;
 		}
 	}
 	&__buttons {
@@ -195,10 +215,10 @@
 }
 
 .open-editor {
-  text-align: right;
-  cursor: pointer;
-  
-  span {
-    border-bottom: 1px solid;
-  }
+	text-align: right;
+	cursor: pointer;
+
+	span {
+		border-bottom: 1px solid;
+	}
 }

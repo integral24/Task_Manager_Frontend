@@ -45,7 +45,6 @@ const MainPage: React.FC = (): JSX.Element => {
 									placeholder="Начните писать задачу..."
 									value={titleValue}
 									className="main-input"
-									id="main-input"
 								/>
 								{titleValue && (
 									<div className="svg-close" onClick={onClickClear} />

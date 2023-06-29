@@ -1,4 +1,4 @@
-import { IRoutes } from '@/components/Navigation';
+import { optionItem } from './constants';
 
 export const getUnicID = (prefix: string): string => {
 	return (
@@ -20,17 +20,11 @@ export const ls = {
 	},
 };
 
-export const menu: IRoutes['routes'] = [
-	{
-		to: '/',
-		name: 'Главная',
-	},
-	{
-		to: '/timer',
-		name: 'Таймер',
-	},
-	{
-		to: '/auth',
-		name: 'Войти',
-	},
-];
+export const iconNameFromType = (
+	type: string
+): { icon: string; color: string } => {
+	return optionItem.find((item) => item.title === type) as {
+		icon: string;
+		color: string;
+	};
+};

@@ -6,9 +6,9 @@ import Navigation from '@/components/Navigation';
 
 import http from '@/http/http';
 
-import { menu } from '@/utils';
+import { menu } from '@/utils/constants';
 
-import { useAppDispatch } from './hooks/redux';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
 // import Loader from './components/ui/Loader';
 // import { useAppSelector } from './hooks/redux';
 import { interceptorsSetup } from './http/interceptorsSetup';
@@ -21,23 +21,28 @@ const Auth = React.lazy(async () => import('@/pages/AuthPage'));
 
 const wrapper = (component: ReactNode) => (
 	<React.Suspense fallback={<>...load</>}>
-		<div className="container">{component}</div>
+		<div className="page-app">
+			<div className="container">{component}</div>
+		</div>
 	</React.Suspense>
 );
 
 const App: React.FC = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
+	const user = useAppSelector((store) => store.authSlice.user);
 	// const status = useAppSelector((store) => store.commonSlice.status);
 	// const [statusLocal, setstatusLocal] = useState(true);
-
-	// setTimeout(() => setstatusLocal(false), 2000);
 
 	const location = useLocation();
 
 	useEffect(() => {
-		dispatch(getUser());
-	}, []);
+		if (!user.email) {
+			dispatch(getUser());
+		} else {
+			navigate('/');
+		}
+	}, [user?.email]);
 
 	interceptorsSetup(http, store, navigate);
 	return (

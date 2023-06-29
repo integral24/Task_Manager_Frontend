@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useId, useRef } from 'react';
 
 interface IProps {
 	autocomplete?: boolean;
@@ -10,7 +10,6 @@ interface IProps {
 	className?: string;
 	disabled?: boolean;
 	value: string;
-	id?: string;
 	onChange:
 		| React.Dispatch<React.SetStateAction<string>>
 		| ((p: string) => void);
@@ -27,10 +26,11 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 		disabled,
 		onChange,
 		value,
-		id,
 		focus = false,
 		label,
 	} = props;
+
+	const fieldId = useId();
 
 	const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange(e.target.value);
@@ -47,7 +47,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 
 	return (
 		<>
-			<label>{label ? label : ''}</label>
+			<label htmlFor={fieldId}>{label ? label : ''}</label>
 			<input
 				autoComplete={autocomplete ? '' : 'off'}
 				ref={refInput}
@@ -61,7 +61,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 				disabled={disabled}
 				type="input"
 				value={value}
-				id={id}
+				id={fieldId}
 			/>
 		</>
 	);

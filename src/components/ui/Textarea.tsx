@@ -1,12 +1,11 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useId } from 'react';
 
 interface IProps {
 	label?: string;
 	placeholder: string;
 	className?: string;
 	value: string;
-	id?: string;
 	onChange:
 		| React.Dispatch<React.SetStateAction<string>>
 		| ((p: string) => void);
@@ -14,7 +13,9 @@ interface IProps {
 }
 
 const Textarea: React.FC<IProps> = (props): JSX.Element => {
-	const { placeholder, className, onChange, value, id, label, rows } = props;
+	const { placeholder, className, onChange, value, label, rows } = props;
+
+	const fieldId = useId();
 
 	const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		onChange(e.target.value);
@@ -22,7 +23,7 @@ const Textarea: React.FC<IProps> = (props): JSX.Element => {
 
 	return (
 		<>
-			<label>{label ? label : ''}</label>
+			<label htmlFor={fieldId}>{label ? label : ''}</label>
 			<textarea
 				className={cn({
 					textarea: true,
@@ -33,7 +34,7 @@ const Textarea: React.FC<IProps> = (props): JSX.Element => {
 					changeHandler(e)
 				}
 				value={value}
-				id={id}
+				id={fieldId}
 				rows={rows}
 			/>
 		</>
