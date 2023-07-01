@@ -10,10 +10,11 @@ interface IProps {
 		| React.Dispatch<React.SetStateAction<string>>
 		| ((p: string) => void);
 	rows: number;
+  readonly?: boolean;
 }
 
 const Textarea: React.FC<IProps> = (props): JSX.Element => {
-	const { placeholder, className, onChange, value, label, rows } = props;
+	const { placeholder, className, onChange, value, label, rows, readonly = false } = props;
 
 	const fieldId = useId();
 
@@ -36,6 +37,7 @@ const Textarea: React.FC<IProps> = (props): JSX.Element => {
 				value={value}
 				id={fieldId}
 				rows={rows}
+        readOnly={readonly}
 			/>
 		</>
 	);

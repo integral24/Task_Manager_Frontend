@@ -21,11 +21,11 @@ const compareUrls = (compare: string, url: string) => {
 };
 
 const compareErrorToken = (error: AxiosError): boolean => {
-	console.log(
-		!(error instanceof CanceledError) &&
-			error.response?.status === 401 &&
-			error.config?.url !== EAuthLocation.refresh
-	);
+	// console.log(
+	// 	!(error instanceof CanceledError) &&
+	// 		error.response?.status === 401 &&
+	// 		error.config?.url !== EAuthLocation.refresh
+	// );
 	return (
 		!(error instanceof CanceledError) &&
 		error.response?.status === 401 &&
