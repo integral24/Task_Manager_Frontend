@@ -5,27 +5,49 @@
 @import './ui/index';
 @import './pages/index';
 @import './common';
+@import './menu';
+
+body,
+textarea {
+	background-color: initial;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	color: $text-primary;
+}
 
 body {
-  background-color: $body-dark;
-  // padding: 0 calc(20px - (100vw - 100%)) 0 0;
-  font-family: 'Fira Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: $text-primary;
+	background-color: $body-dark;
+	// padding: 0 calc(20px - (100vw - 100%)) 0 0;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	color: $text-primary;
 }
 
 .br-1 {
-  border-radius: $br1;
+	border-radius: $br1;
 }
 .br-2 {
-  border-radius: $br2;
+	border-radius: $br2;
 }
 .br-3 {
-  border-radius: $br3;
+	border-radius: $br3;
 }
 
-.bg-dark-blue {
-  background-color: $block-dark-blue;
-  border-radius: $br1;
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	background-color: #00000026;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #274882bf;
+	border-radius: 9em;
+	box-shadow: inset 1px 1px 10px #00000069;
+}
+::-moz-scrollbar-button:decrement,
+::-moz-scrollbar-button:increment,
+::-webkit-scrollbar-button:decrement,
+::-webkit-scrollbar-button:increment {
+	width: 0px;
 }

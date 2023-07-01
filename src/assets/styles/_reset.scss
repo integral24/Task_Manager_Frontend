@@ -103,4 +103,5 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+*:focus {outline:0px none transparent;}
 
