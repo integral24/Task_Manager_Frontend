@@ -4,7 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { setToken } from '@/http/tokenService';
 
 import * as api from './actions/actionsAuth';
-import commonSlice from './commonSlice';
 
 enum Status {
 	LOADING = 'loading',
@@ -53,7 +52,7 @@ const authSlice = createSlice({
 				state.status = Status.ERROR;
 			}
 		});
-		builder.addCase(api.signUp.rejected, (state, action) => {
+		builder.addCase(api.signUp.rejected, (state) => {
 			state.status = Status.ERROR;
 		});
 
@@ -73,7 +72,7 @@ const authSlice = createSlice({
 				state.status = Status.ERROR;
 			}
 		});
-		builder.addCase(api.signIn.rejected, (state, action) => {
+		builder.addCase(api.signIn.rejected, (state) => {
 			state.status = Status.ERROR;
 		});
 
@@ -87,7 +86,7 @@ const authSlice = createSlice({
 			state.user.name = name;
 			state.user.email = email;
 		});
-		builder.addCase(api.getUser.rejected, (state, action) => {
+		builder.addCase(api.getUser.rejected, (state) => {
 			state.status = Status.ERROR;
 		});
 	},

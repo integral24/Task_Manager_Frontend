@@ -85,7 +85,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 				className={cn({
 					'edit-modal': true,
 					'edit-mode': isEdit,
-          [mode]: true
+					[mode]: true,
 				})}
 			>
 				<div className="edit-modal__category">
