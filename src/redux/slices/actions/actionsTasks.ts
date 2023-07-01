@@ -38,7 +38,9 @@ export const updateTask = createAsyncThunk(
 
 export const deleteTask = createAsyncThunk(
 	'task/deleteTask',
-	async (id: number): Promise<{ id: number; delete: boolean; message: string }> => {
+	async (
+		id: number
+	): Promise<{ id: number; delete: boolean; message: string }> => {
 		const { data } = await http.delete(`/task/${id}`);
 		return data;
 	}
