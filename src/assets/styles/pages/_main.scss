@@ -81,13 +81,26 @@
 	position: relative;
 
 	$item: &;
-
-	&__edit.svg-icon {
+  &__controls {
 		opacity: 0;
 		visibility: hidden;
 		position: absolute;
-		right: -5px;
+    right: -5px;
 		top: -5px;
+    display: flex;
+    width: max-content;
+    gap: 16px;
+  }
+
+	&__edit.svg-icon {
+		background-size: 12px;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background-color: $button-active;
+	}
+
+	&__delete.svg-icon {
 		background-size: 12px;
 		width: 25px;
 		height: 25px;
@@ -98,7 +111,7 @@
 	&:hover {
 		transform: scale(1.005);
 
-		#{$item}__edit {
+		#{$item}__controls {
 			opacity: 1;
 			visibility: visible;
 		}
@@ -117,7 +130,7 @@
 		color: #fff;
 		display: flex;
 		align-items: center;
-		gap:8px;
+		gap: 8px;
 
 		& > .svg-icon {
 			background-color: #304f9c;
@@ -136,7 +149,7 @@
 			&.blue {
 				background-color: #304f9c;
 			}
-	}
+		}
 	}
 }
 
@@ -188,16 +201,26 @@
 
 		& > input {
 			width: 100%;
-			background-color: #172843;
 			font-size: 16px;
-
 		}
 
 		& textarea {
-			background-color: #172843;
 			overflow-y: auto;
 			resize: none;
 			padding: 10px;
+		}
+	}
+	$edit-modal: &;
+	&.edit-mode {
+		#{$edit-modal}__wrap > input,
+		#{$edit-modal}__wrap > textarea {
+			background-color: #172843;
+		}
+	}
+	&.create {
+		#{$edit-modal}__wrap > input,
+		#{$edit-modal}__wrap > textarea {
+			background-color: #172843;
 		}
 	}
 	&__buttons {

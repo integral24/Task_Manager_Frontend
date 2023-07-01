@@ -84,13 +84,14 @@ const taskSlice = createSlice({
 			state.status = Status.loading;
 		});
 		builder.addCase(api.deleteTask.fulfilled, (state, action) => {
-			if (action.payload.delete) {
+			// if (action.payload.delete) {
+			if (action.payload.message === 'Task was deleted') {
 				state.status = Status.success;
 				if (state.tasks.length > 0) {
-					const newTasksList = state.tasks.find(
-						(el) => el.id !== action.payload.id
+					const newTasksList = state.tasks.filter(
+						(el) => el.id !== +action.payload.id
 					);
-					state.tasks = newTasksList ? [newTasksList] : [];
+					state.tasks = newTasksList.length ? newTasksList : [];
 				}
 			} else state.status = Status.error;
 		});

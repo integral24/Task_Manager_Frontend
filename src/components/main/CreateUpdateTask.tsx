@@ -1,8 +1,10 @@
-import Button from '../ui/Button';
-import Input from '../ui/Input';
-import Select from '../ui/Select';
-import Textarea from '../ui/Textarea';
+import cn from 'classnames';
 import { memo, useState } from 'react';
+
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import Textarea from '@/components/ui/Textarea';
 
 import { createTask, updateTask } from '@/redux/slices/actions/actionsTasks';
 
@@ -12,7 +14,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { optionItem } from '@/utils/constants';
 
 interface IProps {
-	mode: 'create' | 'update';
+	mode: 'create' | 'view';
 	original?: ITask | null;
 	currentTitle?: string;
 	close: () => void;
@@ -21,6 +23,7 @@ interface IProps {
 
 const CreateUpdateTask: React.FC<IProps> = memo(
 	({ mode, original, currentTitle, close, setTitleValue }) => {
+		const [isEdit, setIsEdit] = useState<boolean>(false);
 		const dispatch = useAppDispatch();
 		const { id } = useAppSelector((state) => state.authSlice.user);
 		const [title, setTitle] = useState<string>(
@@ -78,14 +81,24 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 		};
 
 		return (
-			<div className="edit-modal">
+			<div
+				className={cn({
+					'edit-modal': true,
+					'edit-mode': isEdit,
+					[mode]: true,
+				})}
+			>
 				<div className="edit-modal__category">
 					Категория:
-					<Select
-						options={optionItem}
-						setOptionCurrentTitle={setOptionCurrentTitle}
-						optionCurrentTitle={type}
-					/>
+					{isEdit || mode === 'create' ? (
+						<Select
+							options={optionItem}
+							setOptionCurrentTitle={setOptionCurrentTitle}
+							optionCurrentTitle={type}
+						/>
+					) : (
+						' ' + type
+					)}
 				</div>
 
 				<div className="edit-modal__wrap">
@@ -96,6 +109,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 						value={title}
 						className="edit-modal__title-modal"
 						placeholder="Начните писать задачу..."
+						readonly={mode === 'create' ? false : !isEdit}
 					/>
 				</div>
 				<div className="edit-modal__wrap">
@@ -105,13 +119,21 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 						value={description || ''}
 						placeholder="Добавьте подробное описание задачи..."
 						label="Описание"
+						readonly={mode === 'create' ? false : !isEdit}
 					/>
 				</div>
 
 				<div className="edit-modal__buttons">
-					{mode === 'update' ? (
+					{mode === 'view' ? (
 						<>
-							<Button onClick={submitTaskHandler} text="Сохранить изменения" />
+							{isEdit ? (
+								<Button
+									onClick={submitTaskHandler}
+									text="Сохранить изменения"
+								/>
+							) : (
+								<Button onClick={() => setIsEdit(true)} text="Редактировать" />
+							)}
 							<Button onClick={cancelEditHandler} text="Отмена" />
 						</>
 					) : (

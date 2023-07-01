@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { useAppSelector } from '@/hooks/redux';
 
@@ -16,7 +16,6 @@ const Navigation: React.FC<IRoutes> = ({ routes }) => {
 	const menu = useMemo(
 		() =>
 			[...routes].filter((itemMenu) => {
-				console.log('menu');
 				return user?.email && !itemMenu.to.includes('auth');
 				// return itemMenu;
 			}),
@@ -28,8 +27,6 @@ const Navigation: React.FC<IRoutes> = ({ routes }) => {
 	// 	// return user?.email && !itemMenu.to.includes('auth');
 	// 	return itemMenu;
 	// });
-
-	console.count('render');
 
 	return (
 		<nav className="top-menu">

@@ -10,6 +10,7 @@ interface IProps {
 	className?: string;
 	disabled?: boolean;
 	value: string;
+	readonly?: boolean;
 	onChange:
 		| React.Dispatch<React.SetStateAction<string>>
 		| ((p: string) => void);
@@ -28,6 +29,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 		value,
 		focus = false,
 		label,
+		readonly = false,
 	} = props;
 
 	const fieldId = useId();
@@ -62,6 +64,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 				type="input"
 				value={value}
 				id={fieldId}
+				readOnly={readonly}
 			/>
 		</>
 	);

@@ -4,7 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { setToken } from '@/http/tokenService';
 
 import * as api from './actions/actionsAuth';
-import commonSlice from './commonSlice';
 
 enum Status {
 	LOADING = 'loading',
@@ -41,7 +40,6 @@ const authSlice = createSlice({
 			state.status = Status.LOADING;
 		});
 		builder.addCase(api.signUp.fulfilled, (state, action) => {
-			console.log(action.payload);
 			if (action.payload.accessToken) {
 				state.status = Status.SUCCESS;
 				setToken(action.payload.accessToken);
@@ -50,15 +48,12 @@ const authSlice = createSlice({
 				state.user.name = name;
 				state.user.email = email;
 				state.message = action.payload.message ?? '';
-				console.log(commonSlice);
 			} else {
 				state.status = Status.ERROR;
-				console.log(action.payload);
 			}
 		});
-		builder.addCase(api.signUp.rejected, (state, action) => {
+		builder.addCase(api.signUp.rejected, (state) => {
 			state.status = Status.ERROR;
-			console.log(action.payload);
 		});
 
 		builder.addCase(api.signIn.pending, (state) => {
@@ -75,12 +70,10 @@ const authSlice = createSlice({
 				state.message = action.payload.message ?? '';
 			} else {
 				state.status = Status.ERROR;
-				console.log(action.payload);
 			}
 		});
-		builder.addCase(api.signIn.rejected, (state, action) => {
+		builder.addCase(api.signIn.rejected, (state) => {
 			state.status = Status.ERROR;
-			console.log(action.payload);
 		});
 
 		builder.addCase(api.getUser.pending, (state) => {
@@ -89,14 +82,12 @@ const authSlice = createSlice({
 		builder.addCase(api.getUser.fulfilled, (state, action) => {
 			state.status = Status.SUCCESS;
 			const { id, name, email } = action.payload.user;
-			// console.log('user', action.payload);
 			state.user.id = id;
 			state.user.name = name;
 			state.user.email = email;
 		});
-		builder.addCase(api.getUser.rejected, (state, action) => {
+		builder.addCase(api.getUser.rejected, (state) => {
 			state.status = Status.ERROR;
-			console.log(action.payload);
 		});
 	},
 });
