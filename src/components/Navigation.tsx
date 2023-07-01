@@ -16,7 +16,6 @@ const Navigation: React.FC<IRoutes> = ({ routes }) => {
 	const menu = useMemo(
 		() =>
 			[...routes].filter((itemMenu) => {
-				console.log('menu');
 				return user?.email && !itemMenu.to.includes('auth');
 				// return itemMenu;
 			}),
@@ -29,7 +28,6 @@ const Navigation: React.FC<IRoutes> = ({ routes }) => {
 	// 	return itemMenu;
 	// });
 
-	console.count('render');
 
 	return (
 		<nav className="top-menu">
