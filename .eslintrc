@@ -33,7 +33,7 @@
 		"prettier/prettier": [
 			"warn",
 			{
-				"endOfLine": "semi"
+				"endOfLine": "auto"
 			}
 		],
 		"no-param-reassign": [
