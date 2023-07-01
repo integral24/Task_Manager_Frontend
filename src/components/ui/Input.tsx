@@ -64,7 +64,7 @@ const Input: React.FC<IProps> = (props): JSX.Element => {
 				type="input"
 				value={value}
 				id={fieldId}
-        readOnly={readonly}
+				readOnly={readonly}
 			/>
 		</>
 	);
