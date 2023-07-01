@@ -32,9 +32,13 @@ const Tasks: React.FC<IProps> = memo(function TaskComponent({
 									[generateIconName(task.type)?.icon]: true,
 								})}
 							/>
-							{task.title}
+							<p>{task.title}</p>
 						</div>
-						<div className="task-item__text">{task.description}</div>
+						{task.description ? (
+							<div className="task-item__text">{task.description}</div>
+						) : (
+							''
+						)}
 						<div className="task-item__controls">
 							<span
 								onClick={() => editTask(task)}

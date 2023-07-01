@@ -20,6 +20,7 @@
 
 .svg-icon {
   @include svg-icon('edit', 16px, 16px);
+  @include svg-icon('delete', 16px, 16px);
   @include svg-icon('arrow-up', 16px, 16px);
   @include svg-icon('arrow-down', 16px, 16px);
   @include svg-icon('fire', 16px, 16px);
