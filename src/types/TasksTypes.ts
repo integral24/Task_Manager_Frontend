@@ -8,7 +8,12 @@ export interface ITask {
 	type: typeOptions;
 }
 
-export type typeOptions = 'Срочные' | 'Важные' | 'Обычные';
+export interface IResponse {
+	tasks: ITask[];
+	message: string;
+}
+
+export type typeOptions = 'Срочные' | 'Важные' | 'Обычные' | 'Все';
 
 export interface ITaskCreate {
 	userId: number;
