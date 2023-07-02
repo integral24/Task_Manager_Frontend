@@ -1,4 +1,4 @@
-import { optionItem } from './constants';
+import { optionItems } from './constants';
 
 export const getUnicID = (prefix: string): string => {
 	return (
@@ -23,7 +23,7 @@ export const ls = {
 export const iconNameFromType = (
 	type: string
 ): { icon: string; color: string } => {
-	return optionItem.find((item) => item.title === type) as {
+	return optionItems.find((item) => item.title === type) as {
 		icon: string;
 		color: string;
 	};
