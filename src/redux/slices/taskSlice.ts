@@ -40,7 +40,6 @@ const taskSlice = createSlice({
 			state.status = Status.loading;
 		});
 		builder.addCase(api.createTask.fulfilled, (state, action) => {
-			console.log(action.payload);
 			if (action.payload.message) {
 				state.status = Status.success;
 				state.tasks = action.payload.tasks;
