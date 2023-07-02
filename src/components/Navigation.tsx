@@ -41,6 +41,9 @@ const Navigation: React.FC<IRoutes> = ({ routes }) => {
 								<NavLink to={to}>{name}</NavLink>
 							</div>
 						))}
+						<div className="menu__user">
+							<b>{user.name}</b>
+						</div>
 					</div>
 				</div>
 			</div>
