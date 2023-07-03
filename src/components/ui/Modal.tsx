@@ -9,12 +9,13 @@ interface IProps {
 	isOpen: boolean;
 	close: () => void;
 	blur?: boolean;
+	center?: boolean;
 }
 
 const modalPortal = document.getElementById('modal');
 
 const Modal: React.FC<IProps> = (props): JSX.Element => {
-	const { type, isOpen, children, close, blur = false } = props;
+	const { type, isOpen, children, close, blur = false, center } = props;
 	const nodeRef = useRef(null);
 
 	const closeHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -37,6 +38,7 @@ const Modal: React.FC<IProps> = (props): JSX.Element => {
 							className={cn({
 								modal: true,
 								blur: blur,
+								center: center,
 							})}
 							onClick={(e: React.MouseEvent<HTMLDivElement>) => closeHandler(e)}
 						>

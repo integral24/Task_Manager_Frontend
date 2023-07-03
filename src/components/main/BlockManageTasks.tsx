@@ -92,6 +92,7 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				close={() => setModalDeleteShow(false)}
 				isOpen={modalDeleteShow}
 				blur={true}
+				center={true}
 			>
 				<h3>Удалить?</h3>
 				<div className="block-tasks__dialog__buttons">

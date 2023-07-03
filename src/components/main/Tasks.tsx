@@ -30,10 +30,10 @@ const Tasks: React.FC<IProps> = memo(function TaskComponent({
 				(current.style.height = size + 'px');
 
 			if (tb.bottom > body.clientHeight) {
-				const height = tb.height - (tb.bottom - body.clientHeight + 40);
+				const height = tb.height - (tb.bottom - body.clientHeight + 60);
 				runResizeHeight(height);
 			} else {
-				const height = tb.height + (body.clientHeight - tb.bottom - 40);
+				const height = tb.height + (body.clientHeight - tb.bottom - 60);
 				runResizeHeight(height);
 			}
 		}
