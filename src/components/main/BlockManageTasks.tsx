@@ -1,8 +1,9 @@
-// import Loader from '../ui/Loader';
-import Button from '../ui/Button';
-import Modal from '../ui/Modal';
-import Select from '../ui/Select';
 import { memo, useCallback, useEffect, useState } from 'react';
+
+import Button from '@/components/ui/Button';
+import Loader from '@/components/ui/Loader';
+import Modal from '@/components/ui/Modal';
+import Select from '@/components/ui/Select';
 
 import { deleteTask, getTasks } from '@/redux/slices/actions/actionsTasks';
 import { setOptionCurrentTitle } from '@/redux/slices/taskSlice';
@@ -18,6 +19,7 @@ import Tasks from './Tasks';
 const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const dispatch = useAppDispatch();
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
+	const status = useAppSelector((state) => state.taskSlice.status);
 	const optionCurrentTitle = useAppSelector(
 		(state) => state.taskSlice.sort.type
 	);
@@ -71,14 +73,15 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				</div>
 			</div>
 			<div className="block-tasks__bottom">
-				{tasks && tasks.length ? (
+				{status === 'loading' ? (
+					<Loader type="local" isOpen={status === 'loading'} />
+				) : tasks && tasks.length ? (
 					<>
 						<Tasks
 							editTask={editTaskHandler}
 							deleteTask={deleteTaskHandler}
 							tasks={tasks}
 						/>
-						{/* <Loader type="local" isOpen={status === 'loading'} /> */}
 					</>
 				) : (
 					<div>Все сделано!</div>

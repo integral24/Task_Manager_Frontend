@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import { log } from 'console';
 import { memo, useEffect, useRef } from 'react';
 
 import { ITask } from '@/types/TasksTypes';
@@ -21,11 +20,6 @@ const Tasks: React.FC<IProps> = memo(function TaskComponent({
 }): JSX.Element {
 	const taskBlockRef = useRef<HTMLDivElement>(null);
 
-	// const resizeObserver = new ResizeObserver((entries) => {
-	// 	const elem = entries[0]
-	// 	console.log(elem);
-	// });
-
 	const resizeHandler = () => {
 		const current = taskBlockRef.current;
 		if (current) {
@@ -36,12 +30,11 @@ const Tasks: React.FC<IProps> = memo(function TaskComponent({
 				(current.style.height = size + 'px');
 
 			if (tb.bottom > body.clientHeight) {
-				runResizeHeight(tb.height - (tb.bottom - body.clientHeight + 40));
+				const height = tb.height - (tb.bottom - body.clientHeight + 40);
+				runResizeHeight(height);
 			} else {
-				// runResizeHeight(tb.height + (tb.bottom - body.clientHeight + 40));
-				console.log('tb.height', tb.height);
-				console.log('tb.bottom', tb.bottom);
-				console.log('body.clientHeight', body.clientHeight);
+				const height = tb.height + (body.clientHeight - tb.bottom - 40);
+				runResizeHeight(height);
 			}
 		}
 	};

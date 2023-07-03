@@ -8,7 +8,8 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["src/*"],
-			"@pages/*": ["src/pages/*"]
+			"@/pages/*": ["src/pages/*"],
+			"@/ui/*": ["src/components/ui/*"]
 		},
 		"allowJs": true,
 		"skipLibCheck": true,
