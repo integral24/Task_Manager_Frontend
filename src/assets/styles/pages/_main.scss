@@ -77,9 +77,9 @@
 	cursor: pointer;
 	transition: 0.2s;
 	background-color: $block-dark-blue;
-  padding: 15px 14px;
+	padding: 15px 14px;
 	position: relative;
-  border-radius: $br1;
+	border-radius: $br1;
 
 	$item: &;
 	&__controls {
@@ -132,7 +132,7 @@
 		display: -webkit-box;
 		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
-    margin: 8px 20px 0 35px;
+		margin: 8px 20px 0 35px;
 	}
 
 	&__title {
@@ -161,9 +161,9 @@
 			}
 		}
 
-    p {
-      padding-top: 2px;
-    }
+		p {
+			padding-top: 2px;
+		}
 	}
 }
 
@@ -257,5 +257,17 @@
 
 	span {
 		border-bottom: 1px solid;
+	}
+}
+
+.block-tasks__dialog {
+	&__buttons {
+		display: flex;
+		gap: 30px;
+		margin-top: 30px;
+
+		& > button {
+			flex: 1;
+		}
 	}
 }
