@@ -5,11 +5,12 @@ import Select from '../ui/Select';
 import { memo, useCallback, useEffect, useState } from 'react';
 
 import { deleteTask, getTasks } from '@/redux/slices/actions/actionsTasks';
+import { setOptionCurrentTitle } from '@/redux/slices/taskSlice';
 
 import { ITask, typeOptions } from '@/types/TasksTypes';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { optionItem } from '@/utils/constants';
+import { sortingOptions } from '@/utils/constants';
 
 import CreateUpdateTask from './CreateUpdateTask';
 import Tasks from './Tasks';
@@ -17,10 +18,9 @@ import Tasks from './Tasks';
 const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 	const dispatch = useAppDispatch();
 	const tasks = useAppSelector((state) => state.taskSlice.tasks);
-	// const status = useAppSelector((state) => state.taskSlice.status);
-
-	const [optionCurrentTitle, setOptionCurrentTitle] =
-		useState<typeOptions>('Обычные');
+	const optionCurrentTitle = useAppSelector(
+		(state) => state.taskSlice.sort.type
+	);
 	const [modalEditShow, setModalEditShow] = useState(false);
 	const [modalDeleteShow, setModalDeleteShow] = useState(false);
 	const [taskEdit, setTaskEdit] = useState<ITask | null>(null);
@@ -52,16 +52,20 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 		}
 		setModalDeleteShow(false);
 	};
+	const setOptionCurrentTitleHandler = (title: typeOptions) => {
+		dispatch(setOptionCurrentTitle(title));
+		// запрос на сервер
+	};
 
 	return (
 		<div className="block-tasks">
 			<div className="block-tasks__top">
-				<div className="block-tasks__top__title">Ваши задачи</div>
+				<div className="block-tasks__top__title">Список задач:</div>
 				<div className="block-tasks__top__sort">
 					Сортировка:
 					<Select
-						options={optionItem}
-						setOptionCurrentTitle={setOptionCurrentTitle}
+						options={sortingOptions}
+						setOptionCurrentTitle={setOptionCurrentTitleHandler}
 						optionCurrentTitle={optionCurrentTitle}
 					/>
 				</div>

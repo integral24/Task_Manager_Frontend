@@ -32,13 +32,18 @@ const Navigation: React.FC<IRoutes> = ({ routes }) => {
 		<nav className="top-menu">
 			<div className="container">
 				<div className="menu">
-					<div className="logo">App Task Manager</div>
+					<div className="logo">
+						<b>TASK MANAGER</b>
+					</div>
 					<div className="menu__items">
 						{menu.map(({ to, name }, i) => (
 							<div key={name + i} className="menu__item">
 								<NavLink to={to}>{name}</NavLink>
 							</div>
 						))}
+						<div className="menu__user">
+							<b>{user.name}</b>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,13 +1,20 @@
+import { store } from '../../store';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import http from '@/http/http';
 
-import { ITask, ITaskCreate } from '@/types/TasksTypes';
+import { IResponse, ITask, ITaskCreate } from '@/types/TasksTypes';
+
+const getState = () => store.getState().taskSlice;
 
 export const createTask = createAsyncThunk(
 	'task/createTask',
-	async (task: ITaskCreate): Promise<ITask[]> => {
-		const { data } = await http.post('/task', task);
+	async (task: ITaskCreate): Promise<IResponse> => {
+		const { data } = await http.post('/create', {
+			task,
+			sort: getState().sort,
+		});
+		// const { data } = await http.post('/task', task);
 		return data;
 	}
 );
@@ -15,7 +22,7 @@ export const createTask = createAsyncThunk(
 export const getTasks = createAsyncThunk(
 	'task/getTasks',
 	async (): Promise<ITask[]> => {
-		const res = await http.get(`/task/`);
+		const res = await http.post(`/tasks/`);
 		return Array.isArray(res.data) ? res.data : [];
 	}
 );
@@ -23,7 +30,7 @@ export const getTasks = createAsyncThunk(
 export const getTask = createAsyncThunk(
 	'task/getTask',
 	async (id: number): Promise<ITask[]> => {
-		const { data } = await http.get(`/task/${id}`);
+		const { data } = await http.post(`/task/${id}`);
 		return data;
 	}
 );

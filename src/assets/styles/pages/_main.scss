@@ -1,5 +1,5 @@
 .main-page {
-
+	margin-top: 45px;
 	&__top-block {
 		display: flex;
 		gap: 14px;
@@ -24,8 +24,8 @@
 				height: 100%;
 				position: absolute;
 				background-repeat: no-repeat;
-				top: 0;
-				left: 0;
+				top: -1px;
+				left: 4px;
 				cursor: text;
 				background-position: center;
 			}
@@ -36,15 +36,16 @@
 				height: 22px;
 				position: absolute;
 				background-repeat: no-repeat;
-				top: 11px;
-				right: 19px;
+				top: 14px;
+				right: 16px;
 				cursor: pointer;
 				background-position: center;
 			}
 
 			.main-input {
 				width: 100%;
-				padding-left: 48px;
+				padding-left: 50px;
+				padding-right: 50px;
 			}
 		}
 	}
@@ -62,7 +63,7 @@
 .block-tasks {
 	width: 100%;
 	height: 100%;
-	margin-top: 60px;
+	margin-top: 50px;
 	transition: 0.3s;
 
 	&__bottom {
@@ -73,24 +74,24 @@
 .task-item {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
 	cursor: pointer;
 	transition: 0.2s;
 	background-color: $block-dark-blue;
-	padding: 15px;
+  padding: 15px 14px;
 	position: relative;
+  border-radius: $br1;
 
 	$item: &;
-  &__controls {
+	&__controls {
 		opacity: 0;
 		visibility: hidden;
 		position: absolute;
-    right: -5px;
+		right: -5px;
 		top: -5px;
-    display: flex;
-    width: max-content;
-    gap: 16px;
-  }
+		display: flex;
+		width: max-content;
+		gap: 10px;
+	}
 
 	&__edit.svg-icon {
 		background-size: 12px;
@@ -98,14 +99,22 @@
 		height: 25px;
 		border-radius: 50%;
 		background-color: $button-active;
+
+		&:hover {
+			background-size: 15px;
+		}
 	}
 
 	&__delete.svg-icon {
-		background-size: 12px;
+		background-size: 15px;
 		width: 25px;
 		height: 25px;
 		border-radius: 50%;
-		background-color: $button-active;
+		background-color: $close-icon;
+
+		&:hover {
+			background-size: 18px;
+		}
 	}
 
 	&:hover {
@@ -123,6 +132,7 @@
 		display: -webkit-box;
 		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
+    margin: 8px 20px 0 35px;
 	}
 
 	&__title {
@@ -130,26 +140,30 @@
 		color: #fff;
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 13px;
 
 		& > .svg-icon {
 			background-color: #304f9c;
 			padding: 3px;
 			width: 22px;
 			height: 22px;
-			background-size: 14px;
+			background-size: 15px;
 			border-radius: 30px;
 
 			&.red {
-				background-color: $color-red;
+				background-color: #8e6911;
 			}
 			&.green {
-				background-color: $green;
+				background-color: #339d70;
 			}
 			&.blue {
 				background-color: #304f9c;
 			}
 		}
+
+    p {
+      padding-top: 2px;
+    }
 	}
 }
 

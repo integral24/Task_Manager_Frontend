@@ -11,7 +11,7 @@ import { createTask, updateTask } from '@/redux/slices/actions/actionsTasks';
 import { ITask, ITaskCreate, typeOptions } from '@/types/TasksTypes';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { optionItem } from '@/utils/constants';
+import { optionItems } from '@/utils/constants';
 
 interface IProps {
 	mode: 'create' | 'view';
@@ -92,7 +92,7 @@ const CreateUpdateTask: React.FC<IProps> = memo(
 					Категория:
 					{isEdit || mode === 'create' ? (
 						<Select
-							options={optionItem}
+							options={optionItems}
 							setOptionCurrentTitle={setOptionCurrentTitle}
 							optionCurrentTitle={type}
 						/>

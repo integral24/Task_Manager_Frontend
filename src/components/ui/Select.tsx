@@ -38,7 +38,7 @@ const Select: React.FC<IProps> = (props): JSX.Element => {
 			<div className="select__current-title" onClick={setIsOpenHandler}>
 				{optionCurrentTitle}
 				<span
-					className={'svg-icon '.concat(!isOpen ? 'arrow-up' : 'arrow-down')}
+					className={'svg-icon '.concat(!isOpen ? 'arrow-down' : 'arrow-up')}
 				/>
 			</div>
 
