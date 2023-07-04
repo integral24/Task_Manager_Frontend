@@ -16,7 +16,8 @@ textarea {
 	color: $text-primary;
 }
 
-body {
+body,
+html {
 	background-color: $body-dark;
 	// padding: 0 calc(20px - (100vw - 100%)) 0 0;
 	font-family: 'Fira Sans', sans-serif;
@@ -24,6 +25,9 @@ body {
 	font-weight: 300;
 	color: $text-primary;
 	height: 100vh;
+	min-height: -webkit-fill-available;
+	padding-bottom: env(safe-area-inset-top);
+	padding-top: env(safe-area-inset-bottom);
 	overflow: hidden;
 }
 

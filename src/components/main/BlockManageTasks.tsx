@@ -89,7 +89,10 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 			</div>
 			<Modal
 				type="dialog"
-				close={() => setModalDeleteShow(false)}
+				close={() => {
+					window.scrollTo(0, 100);
+					setModalDeleteShow(false);
+				}}
 				isOpen={modalDeleteShow}
 				blur={true}
 				center={true}
@@ -97,7 +100,13 @@ const BlockManageTasks: React.FC = memo(function BlockManageTasksComponent() {
 				<h3>Удалить?</h3>
 				<div className="block-tasks__dialog__buttons">
 					<Button onClick={submitDeleteTask} text="Да" />
-					<Button onClick={() => setModalDeleteShow(false)} text="Отмена" />
+					<Button
+						onClick={() => {
+							window.scrollTo(0, 0);
+							setModalDeleteShow(false);
+						}}
+						text="Отмена"
+					/>
 				</div>
 			</Modal>
 			<Modal

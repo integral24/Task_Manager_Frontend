@@ -19,7 +19,9 @@ const Modal: React.FC<IProps> = (props): JSX.Element => {
 	const nodeRef = useRef(null);
 
 	const closeHandler = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (e.target === e.currentTarget) close();
+		if (e.target === e.currentTarget) {
+			close();
+		}
 	};
 
 	return (
